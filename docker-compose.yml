@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: polymorphicus-philosophus-postgres
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=philosophus
+      - POSTGRES_PASSWORD=polymorphicus
+      - POSTGRES_DB=polymorphicus
+      - PGDATA=/database/postgres
+    volumes:
+      - ./database/pg:/data/postgres
