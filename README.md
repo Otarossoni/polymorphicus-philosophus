@@ -29,7 +29,7 @@ Todas as APIs manipularão um banco de dados em comum, as tabelas e seus relacio
       <img src="/@assets/docs/uml-database.svg" align="center" alt="uml-database" />
 </p>
 
-##### Tabelas
+### Tabelas
 
 - **philosopher**: Tabela de filósofos, nela estarão as informações básicas dos filósofos;
 - **philosophy_school**: Tabela de escolas filosóficas, nela estarão as informações básicas das escolas filosóficas;
