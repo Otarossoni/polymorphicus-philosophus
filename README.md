@@ -48,7 +48,7 @@ Para essa funcionalidade, serão necessários dois endpoints: 
 
 Essas serão as únicas duas rotas da API que não precisarão de autenticação, que serão abertas para uso. Todas as outras deverão possuir controle de acesso, exigindo token antes de realizar qualquer outra ação. 
 
-#### Criações
+#### Criações
 
 Serão disponibilizados cinco endpoints para criação de informações dentro da API:
 
