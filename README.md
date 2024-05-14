@@ -43,8 +43,8 @@ Todas as APIs manipularão um banco de dados em comum, as tabelas e seus relacio
 
 Para essa funcionalidade, serão necessários dois endpoints: 
 
-- **`POST: /api/register`**: responsável por interagir com a tabela *user*, criando novos usuários para controle de acesso;
-- **`POST: /api/session`**: responsável por validar a existência do cadastro de um usuário e geração de um token JWT para uso.
+- **`POST: /api/register`**: responsável por interagir com a tabela *user*, criando novos usuários para controle de acesso;
+- **`POST: /api/session`**: responsável por validar a existência do cadastro de um usuário e geração de um token JWT para uso.
 
 Essas serão as únicas duas rotas da API que não precisarão de autenticação, que serão abertas para uso. Todas as outras deverão possuir controle de acesso, exigindo token antes de realizar qualquer outra ação. 
 
