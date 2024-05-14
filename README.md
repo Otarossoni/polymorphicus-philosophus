@@ -57,3 +57,18 @@ Serão disponibilizados cinco endpoints para criação de informações 
 - **`POST: /api/philosopher/link`**: responsável por receber o código identificador de um filósofo e o código identificador de uma escola filosófica, e realizar o vínculo entre os dois no banco de dados;
 - **`POST: /api/quote`**: responsável por receber uma citação e o código identificador de um filósofo e a registrar no banco de dados;
 - **`POST: /api/quote/list`**: responsável por receber uma lista de citações e o código identificador de um filósofo e a registrar todas elas no banco de dados.
+
+**Todos os endpoints devem exigir autenticação*
+
+#### Buscas
+
+Serão disponibilizados seis endpoints para busca de informações:
+
+- **`GET: /api/school`**: responsável por retornar uma lista de escolas filosóficas;
+- **`GET: /api/school/:id`**: responsável por retornar uma escola literária específica e todos os filósofos vinculados a ela;
+- **`GET: /api/philosopher`**: responsável por retornar uma lista de filósofos;
+- **`GET: /api/philosopher/:id`**: responsável por retornar um filósofo específico e todas as citações vinculadas a ele;
+- **`GET: /api/quote`**: responsável por trazer uma lista de citações paginadas. Retornará vinte itens por página;
+- **`GET: /api/quote/random`**: responsável por retornar uma citação aleatória de um filósofo. O filósofo pode ser informado como parâmetro opcional, caso seja necessária uma citação aleatória de um filósofo específico. 
+
+**Todos os endpoints devem exigir autenticação*
