@@ -72,3 +72,11 @@ Serão disponibilizados seis endpoints para busca de informações:
 - **`GET: /api/quote/random`**: responsável por retornar uma citação aleatória de um filósofo. O filósofo pode ser informado como parâmetro opcional, caso seja necessária uma citação aleatória de um filósofo específico. 
 
 **Todos os endpoints devem exigir autenticação*
+
+#### Swagger
+
+Será disponibilizada uma rota `GET /api-docs` para documentação via Swagger de todos os endpoints.
+
+#### Testes
+
+A API deve possuir testes automatizados em seus endpoints e/ou em suas camadas mais internas que contemplem a lógica principal de cada funcionalidade.
