@@ -62,14 +62,15 @@ Serão disponibilizados cinco endpoints para criação de informações 
 
 #### Buscas
 
-Serão disponibilizados seis endpoints para busca de informações:
+Serão disponibilizados sete endpoints para busca de informações:
 
 - **`GET: /api/school`**: responsável por retornar uma lista de escolas filosóficas;
 - **`GET: /api/school/:id`**: responsável por retornar uma escola literária específica e todos os filósofos vinculados a ela;
 - **`GET: /api/philosopher`**: responsável por retornar uma lista de filósofos;
 - **`GET: /api/philosopher/:id`**: responsável por retornar um filósofo específico e todas as citações vinculadas a ele;
 - **`GET: /api/quote`**: responsável por trazer uma lista de citações paginadas. Retornará vinte itens por página;
-- **`GET: /api/quote/random`**: responsável por retornar uma citação aleatória de um filósofo. O filósofo pode ser informado como parâmetro opcional, caso seja necessária uma citação aleatória de um filósofo específico. 
+- **`GET: /api/quote/random`**: responsável por retornar uma citação aleatória de um filósofo. O filósofo pode ser informado como parâmetro opcional, caso seja necessária uma citação aleatória de um filósofo específico; 
+- **`GET: /api/quote/daily`**: responsável por retornar uma citação de um filósofo diferente a cada dia.
 
 **Todos os endpoints devem exigir autenticação*
 
@@ -80,3 +81,7 @@ Será disponibilizada uma rota `GET /api-docs` para documentação via Swagger d
 #### Testes
 
 A API deve possuir testes automatizados em seus endpoints e/ou em suas camadas mais internas que contemplem a lógica principal de cada funcionalidade.
+
+#### CronJob
+
+A API deve possuir uma rotina que deve atualizar a citação do endpoint `GET: /api/quote/daily` diariamente.
