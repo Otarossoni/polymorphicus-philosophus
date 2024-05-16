@@ -85,3 +85,12 @@ A API deve possuir testes automatizados em seus endpoints e/ou em suas camadas m
 #### CronJob
 
 A API deve possuir uma rotina que deve atualizar a citação do endpoint `GET: /api/quote/daily` diariamente.
+
+### Resumo dos Requisitos
+
+- [X] Dois endpoints voltados para autenticação
+- [X] Cinco endpoints voltados a criação de entidades
+- [X] Sete endpoints voltados a busca de entidades
+- [X] Swagger em todas as rotas
+- [X] Testes automatizados onde for possível testar
+- [X] Uma rotina de execução diária
