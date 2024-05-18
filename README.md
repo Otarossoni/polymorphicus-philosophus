@@ -35,6 +35,7 @@ Todas as APIs manipularão um banco de dados em comum, as tabelas e seus relacio
 - **philosophy_school**: Tabela de escolas filosóficas, nela estarão as informações básicas das escolas filosóficas;
 - **philosophers_schools**: Tabela associativa entre filósofos e escolas filosóficas, possui a relação filósofo-escola;
 - **quote**: Tabela de citações e frases conhecidas de filósofos;
+- **daily_quote**: Tabela de citações diárias, nela estará a citação diária, e também o histórico de todos os dias anteriores;
 - **user**: Tabela de usuários, nela estarão os dados dos usuários para autenticação.
 
 ### Funcionalidades
