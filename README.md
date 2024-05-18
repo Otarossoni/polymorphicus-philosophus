@@ -98,9 +98,25 @@ A API deve possuir uma rotina que deve atualizar a citação do endpoint `GET: /
 ### Resumo dos Requisitos
 
 - [X] Um endpoint voltado para a saúde da aplicação
+  - [X] Rota pública `GET /`
 - [X] Dois endpoints voltados para autenticação
+  - [X] Rota pública `POST: /api/register`
+  - [X] Rota pública `POST: /api/session`
 - [X] Cinco endpoints voltados a criação de entidades
+  - [X] Rota autenticada `POST: /api/school`
+  - [X] Rota autenticada `POST: /api/philosopher`
+  - [X] Rota autenticada `POST: /api/philosopher/link`
+  - [X] Rota autenticada `POST: /api/quote`
+  - [X] Rota autenticada `POST: /api/quote/list`
 - [X] Sete endpoints voltados a busca de entidades
+  - [X] Rota autenticada `GET: /api/school`
+  - [X] Rota autenticada `GET: /api/school/:id`
+  - [X] Rota autenticada `GET: /api/philosopher`
+  - [X] Rota autenticada `GET: /api/philosopher/:id`
+  - [X] Rota autenticada `GET: /api/quote`
+  - [X] Rota autenticada `GET: /api/quote/random`
+  - [X] Rota autenticada `GET: /api/quote/daily`
 - [X] Swagger em todas as rotas
+  - [X] Rota pública `GET /api-docs`
 - [X] Testes automatizados onde for possível testar
 - [X] Uma rotina de execução diária

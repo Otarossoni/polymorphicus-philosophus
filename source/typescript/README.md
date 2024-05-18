@@ -1,9 +1,25 @@
 ### Requisitos
 
 - [X] Um endpoint voltado para a saúde da aplicação
+  - [X] Rota pública `GET /`
 - [ ] Dois endpoints voltados para autenticação
+  - [ ] Rota pública `POST: /api/register`
+  - [ ] Rota pública `POST: /api/session`
 - [ ] Cinco endpoints voltados a criação de entidades
+  - [ ] Rota autenticada `POST: /api/school`
+  - [ ] Rota autenticada `POST: /api/philosopher`
+  - [ ] Rota autenticada `POST: /api/philosopher/link`
+  - [ ] Rota autenticada `POST: /api/quote`
+  - [ ] Rota autenticada `POST: /api/quote/list`
 - [ ] Sete endpoints voltados a busca de entidades
+  - [ ] Rota autenticada `GET: /api/school`
+  - [ ] Rota autenticada `GET: /api/school/:id`
+  - [ ] Rota autenticada `GET: /api/philosopher`
+  - [ ] Rota autenticada `GET: /api/philosopher/:id`
+  - [ ] Rota autenticada `GET: /api/quote`
+  - [ ] Rota autenticada `GET: /api/quote/random`
+  - [ ] Rota autenticada `GET: /api/quote/daily`
 - [ ] Swagger em todas as rotas
+  - [ ] Rota pública `GET /api-docs`
 - [ ] Testes automatizados onde for possível testar
 - [ ] Uma rotina de execução diária
