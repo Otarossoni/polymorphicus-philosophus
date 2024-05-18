@@ -39,6 +39,12 @@ Todas as APIs manipularão um banco de dados em comum, as tabelas e seus relacio
 
 ### Funcionalidades
 
+#### Health Check
+
+Para conferência da saúde da API, será disponibilizada uma rota `GET /`, onde será retornado o status da aplicação. Caso se mostre necessário retornar dados adicionais sobre a API, pode ser utilizada essa rota.
+
+**Essa rota não precisa exigir autenticação*
+
 #### Autenticação
 
 Para essa funcionalidade, serão necessários dois endpoints: 
@@ -46,7 +52,7 @@ Para essa funcionalidade, serão necessários dois endpoints: 
 - **`POST: /api/register`**: responsável por interagir com a tabela *user*, criando novos usuários para controle de acesso;
 - **`POST: /api/session`**: responsável por validar a existência do cadastro de um usuário e geração de um token JWT para uso.
 
-Essas serão as únicas duas rotas da API que não precisarão de autenticação, que serão abertas para uso. Todas as outras deverão possuir controle de acesso, exigindo token antes de realizar qualquer outra ação. 
+Essas duas rotas da API não precisarão de autenticação, pois serão abertas para uso. Todas as outras deverão possuir controle de acesso, exigindo token antes de realizar qualquer outra ação. 
 
 #### Criações
 
@@ -78,6 +84,8 @@ Serão disponibilizados sete endpoints para busca de informações:
 
 Será disponibilizada uma rota `GET /api-docs` para documentação via Swagger de todos os endpoints.
 
+**Essa rota não precisa exigir autenticação*
+
 #### Testes
 
 A API deve possuir testes automatizados em seus endpoints e/ou em suas camadas mais internas que contemplem a lógica principal de cada funcionalidade.
@@ -88,6 +96,7 @@ A API deve possuir uma rotina que deve atualizar a citação do endpoint `GET: /
 
 ### Resumo dos Requisitos
 
+- [X] Um endpoint voltado para a saúde da aplicação
 - [X] Dois endpoints voltados para autenticação
 - [X] Cinco endpoints voltados a criação de entidades
 - [X] Sete endpoints voltados a busca de entidades
