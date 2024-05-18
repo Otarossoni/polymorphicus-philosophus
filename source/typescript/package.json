@@ -7,6 +7,9 @@
     "check": "tsc --noEmit",
     "dev": "tsx watch src/index.ts",
     "lint": "eslint src --ext .ts --fix",
+    "test": "vitest run --dir src",
+    "test:watch": "vitest --dir src",
+    "test:cov": "vitest run --coverage",
     "build": "tsup src --minify --out-dir build"
   },
   "repository": {
@@ -29,10 +32,12 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "2.2.2",
     "@types/node": "20.12.12",
+    "@vitest/coverage-v8": "1.6.0",
     "dotenv": "16.4.5",
     "eslint": "8.57.0",
     "tsup": "8.0.2",
     "tsx": "4.10.5",
-    "typescript": "5.4.5"
+    "typescript": "5.4.5",
+    "vitest": "1.6.0"
   }
 }
