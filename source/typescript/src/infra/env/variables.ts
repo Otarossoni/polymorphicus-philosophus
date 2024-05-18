@@ -6,6 +6,7 @@ const envSchema = z.object({
     .enum(['development', 'test', 'production'])
     .default('development'),
   PORT: z.coerce.number().default(3140),
+  DB_CONNECTION_STRING: z.string(),
 })
 
 export function loadEnvironmentVariables() {
