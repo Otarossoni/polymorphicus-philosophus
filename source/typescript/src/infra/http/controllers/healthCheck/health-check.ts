@@ -1,8 +1,17 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
+import { env } from '../../../env/variables'
 
 export async function healthCheck(
-  request: FastifyRequest,
+  _request: FastifyRequest,
   reply: FastifyReply,
 ) {
-  return reply.status(200).send({ message: 'Health Check' })
+  const healthCheck = {
+    status: 'OK',
+    version: '1.0.0',
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+    environment: env.NODE_ENV,
+  }
+
+  return reply.status(200).send(healthCheck)
 }
