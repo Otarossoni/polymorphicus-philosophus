@@ -7,21 +7,21 @@
 
 <br/>
 
-## Introdução
+## :brain: Introdução
 
 Nesse repositório, será construída a mesma API diversas vezes, entretanto, uma vez para cada linguagem de programação que eu for aprendendo ao longo das décadas. Toda vez que eu aprender uma linguagem nova, refarei a API com a nova tecnologia aprendida.
 
-## Sobre
+## :scroll: Sobre
 
 As APIs terão como tema principal filósofos e escolas da filosofia que foram criadas ao decorrer da história. O banco de dados será centralizado e compartilhado por todas elas e os arquivos do banco de dados [PostgreSQL](https://www.postgresql.org/) podem ser acessados [aqui](/database/). No decorrer do documento, serão descritas funcionalidades e requisitos que todas as APIs deverão cumprir, cada uma resolvendo as demandas dentro do ecossistema de cada linguagem.
 
-## Linguagens
+## :tongue: Linguagens
 
 Abaixo, as linguagens em que a API foi feita:
 
 - [TypeScript](/source/typescript/)
 
-## API
+## :purple_circle: API
 
 Todas as APIs manipularão um banco de dados em comum, as tabelas e seus relacionamentos estão explicitados no diagrama abaixo:
 
@@ -29,7 +29,7 @@ Todas as APIs manipularão um banco de dados em comum, as tabelas e seus relacio
       <img src="/@assets/docs/uml-database.svg" align="center" alt="uml-database" />
 </p>
 
-### Tabelas
+### :game_die: Tabelas
 
 - **philosopher**: Tabela de filósofos, nela estarão as informações básicas dos filósofos;
 - **philosophy_school**: Tabela de escolas filosóficas, nela estarão as informações básicas das escolas filosóficas;
@@ -38,15 +38,15 @@ Todas as APIs manipularão um banco de dados em comum, as tabelas e seus relacio
 - **daily_quote**: Tabela de citações diárias, nela estará a citação diária, e também o histórico de todos os dias anteriores;
 - **user**: Tabela de usuários, nela estarão os dados dos usuários para autenticação.
 
-### Funcionalidades
+### :gear: Funcionalidades
 
-#### Health Check
+#### :purple_heart: Health Check
 
 Para conferência da saúde da API, será disponibilizada uma rota `GET /`, onde será retornado o status da aplicação. Caso se mostre necessário retornar dados adicionais sobre a API, pode ser utilizada essa rota.
 
 **Essa rota não precisa exigir autenticação*
 
-#### Autenticação
+#### :lock: Autenticação
 
 Para essa funcionalidade, serão necessários dois endpoints: 
 
@@ -55,7 +55,7 @@ Para essa funcionalidade, serão necessários dois endpoints: 
 
 Essas duas rotas da API não precisarão de autenticação, pois serão abertas para uso. Todas as outras deverão possuir controle de acesso, exigindo token antes de realizar qualquer outra ação. 
 
-#### Criações
+#### :heavy_plus_sign: Criações
 
 Serão disponibilizados cinco endpoints para criação de informações dentro da API:
 
@@ -67,7 +67,7 @@ Serão disponibilizados cinco endpoints para criação de informações 
 
 **Todos os endpoints devem exigir autenticação*
 
-#### Buscas
+#### :mag_right: Buscas
 
 Serão disponibilizados sete endpoints para busca de informações:
 
@@ -81,21 +81,21 @@ Serão disponibilizados sete endpoints para busca de informações:
 
 **Todos os endpoints devem exigir autenticação*
 
-#### Swagger
+#### :page_facing_up: Swagger
 
 Será disponibilizada uma rota `GET /api-docs` para documentação via Swagger de todos os endpoints.
 
 **Essa rota não precisa exigir autenticação*
 
-#### Testes
+#### :test_tube: Testes
 
 A API deve possuir testes automatizados em seus endpoints e/ou em suas camadas mais internas que contemplem a lógica principal de cada funcionalidade.
 
-#### CronJob
+#### :stopwatch: CronJob
 
 A API deve possuir uma rotina que deve atualizar a citação do endpoint `GET: /api/quote/daily` diariamente.
 
-### Resumo dos Requisitos
+### :bookmark_tabs: Resumo dos Requisitos
 
 - [X] Um endpoint voltado para a saúde da aplicação
   - [X] Rota pública `GET /`

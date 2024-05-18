@@ -1,4 +1,4 @@
-### Requisitos
+### :bookmark_tabs: Requisitos
 
 - [X] Um endpoint voltado para a saúde da aplicação
   - [X] Rota pública `GET /`
