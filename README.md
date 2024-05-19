@@ -42,7 +42,7 @@ Todas as APIs manipularão um banco de dados em comum, as tabelas e seus relacio
 
 #### :purple_heart: Health Check
 
-Para conferência da saúde da API, será disponibilizada uma rota `GET /`, onde será retornado o status da aplicação. Caso se mostre necessário retornar dados adicionais sobre a API, pode ser utilizada essa rota.
+Para conferência da saúde da API, será disponibilizada uma rota `GET /api/`, onde será retornado o status da aplicação. Caso se mostre necessário retornar dados adicionais sobre a API, pode ser utilizada essa rota.
 
 **Essa rota não precisa exigir autenticação*
 

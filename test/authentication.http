@@ -1,0 +1,13 @@
+@baseUrl = http://localhost:3140/api
+
+# @name create_account
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "name": "Otávio Monteiro Rossoni",
+  "email": "otarossoni@gmail.com",
+  "password": "123456" 
+}
+
+###
