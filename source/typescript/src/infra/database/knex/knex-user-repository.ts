@@ -1,6 +1,9 @@
-import { User } from '../../../domain/models/database/user'
-import { UserRepository } from '../../../domain/repositories/database/user-repository'
+import { randomUUID } from 'node:crypto'
+
 import { knex } from '../database'
+import { UserRepository } from '../../../domain/repositories/database/user-repository'
+
+import { User } from '../../../domain/models/database/user'
 
 const USER_TABLE = 'public.user'
 
@@ -16,7 +19,10 @@ export class KnexUserRepository implements UserRepository {
 
   async create(data: User): Promise<void> {
     await knex(USER_TABLE)
-      .insert(data)
+      .insert({
+        id: randomUUID(),
+        ...data,
+      })
       .then()
       .catch((err) => {
         console.error(err)

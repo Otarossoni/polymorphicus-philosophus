@@ -3,9 +3,11 @@ import fastifyJwt from '@fastify/jwt'
 import fastifyCors from '@fastify/cors'
 import { ZodError } from 'zod'
 
+import { env } from './env/variables'
+
 import { healthCheckRoutes } from './http/controllers/healthCheck/routes'
 import { authRoutes } from './http/controllers/authentication/routes'
-import { env } from './env/variables'
+import { philosophySchoolRoutes } from './http/controllers/philosophy-school/routes'
 
 export const app: FastifyInstance = fastify()
 
@@ -22,6 +24,7 @@ app.register(fastifyCors, {
 
 app.register(healthCheckRoutes, { prefix: 'api' })
 app.register(authRoutes, { prefix: 'api' })
+app.register(philosophySchoolRoutes, { prefix: 'api' })
 
 app.setErrorHandler((error, _request, reply) => {
   if (error instanceof ZodError) {

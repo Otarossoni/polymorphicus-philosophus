@@ -1,5 +1,3 @@
-import { randomUUID } from 'node:crypto'
-
 import { Either, left, right } from '../../core/errors/either'
 
 import { UserRepository } from '../repositories/database/user-repository'
@@ -35,7 +33,6 @@ export class RegisterUseCase {
     const hashedPassword = await this.hashRepository.generate(password)
 
     await this.userRepository.create({
-      id: randomUUID(),
       name,
       email,
       password: hashedPassword,
