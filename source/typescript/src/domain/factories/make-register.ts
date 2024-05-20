@@ -5,9 +5,9 @@ import { RegisterUseCase } from '../use-cases/register'
 
 export function makeRegisterUseCase() {
   const userRepository = new KnexUserRepository()
-  const HashRepository = new BcryptHashRepository()
+  const hashRepository = new BcryptHashRepository()
 
-  const register = new RegisterUseCase(userRepository, HashRepository)
+  const register = new RegisterUseCase(userRepository, hashRepository)
 
   return register
 }

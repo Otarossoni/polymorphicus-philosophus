@@ -2,8 +2,8 @@ import { randomUUID } from 'node:crypto'
 
 import { Either, left, right } from '../../core/errors/either'
 
-import { UserRepository } from '../repositories/user-repository'
-import { HashRepository } from '../repositories/hash-repository'
+import { UserRepository } from '../repositories/database/user-repository'
+import { HashRepository } from '../repositories/cryptography/hash-repository'
 
 import { ResourceAlreadyExistsError } from './errors/resource-already-exists-error'
 

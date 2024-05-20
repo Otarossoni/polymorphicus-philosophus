@@ -1,5 +1,6 @@
 import { FastifyInstance, fastify } from 'fastify'
-import cors from '@fastify/cors'
+import fastifyJwt from '@fastify/jwt'
+import fastifyCors from '@fastify/cors'
 import { ZodError } from 'zod'
 
 import { healthCheckRoutes } from './http/controllers/healthCheck/routes'
@@ -8,7 +9,14 @@ import { env } from './env/variables'
 
 export const app: FastifyInstance = fastify()
 
-app.register(cors, {
+app.register(fastifyJwt, {
+  secret: env.JWT_SECRET,
+  sign: {
+    expiresIn: '30m',
+  },
+})
+
+app.register(fastifyCors, {
   origin: true,
 })
 

@@ -1,5 +1,5 @@
 import { User } from '../../../domain/models/database/user'
-import { UserRepository } from '../../../domain/repositories/user-repository'
+import { UserRepository } from '../../../domain/repositories/database/user-repository'
 import { knex } from '../database'
 
 const USER_TABLE = 'public.user'

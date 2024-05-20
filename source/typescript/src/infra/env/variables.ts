@@ -7,6 +7,7 @@ const envSchema = z.object({
     .default('development'),
   PORT: z.coerce.number().default(3140),
   DB_CONNECTION_STRING: z.string(),
+  JWT_SECRET: z.string(),
 })
 
 export function loadEnvironmentVariables() {

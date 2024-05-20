@@ -1,4 +1,4 @@
-import { HashRepository } from '../../../domain/repositories/hash-repository'
+import { HashRepository } from '../../../domain/repositories/cryptography/hash-repository'
 import { hash, compare } from 'bcryptjs'
 
 export class BcryptHashRepository implements HashRepository {

@@ -2,9 +2,9 @@
 
 - [X] Um endpoint voltado para a saúde da aplicação
   - [X] Rota pública `GET /`
-- [ ] Dois endpoints voltados para autenticação
+- [X] Dois endpoints voltados para autenticação
   - [X] Rota pública `POST: /api/register`
-  - [ ] Rota pública `POST: /api/session`
+  - [X] Rota pública `POST: /api/session`
 - [ ] Cinco endpoints voltados a criação de entidades
   - [ ] Rota autenticada `POST: /api/school`
   - [ ] Rota autenticada `POST: /api/philosopher`
