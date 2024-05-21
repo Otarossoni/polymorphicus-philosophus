@@ -54,4 +54,20 @@ describe('Authenticate', () => {
     expect(result.isLeft()).toEqual(true)
     expect(result.value).toBeInstanceOf(WrongCredentialsError)
   })
+
+  it('should not be able to authenticate with wrong password', async () => {
+    await inMemoryUserRepository.create({
+      name: 'John Doe',
+      email: 'johndoe@example.com',
+      password: await fakeHashRepository.generate('123456'),
+    })
+
+    const result = await sut.execute({
+      email: 'johndoe@example.com',
+      password: '1234567',
+    })
+
+    expect(result.isLeft()).toEqual(true)
+    expect(result.value).toBeInstanceOf(WrongCredentialsError)
+  })
 })

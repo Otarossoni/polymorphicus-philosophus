@@ -1,4 +1,4 @@
-import { Either, left } from '../../core/errors/either'
+import { Either, left, right } from '../../core/errors/either'
 
 import { PhilosophySchoolRepository } from '../repositories/database/philosophy-school-repository'
 
@@ -33,6 +33,6 @@ export class CreatePhilosophySchoolUseCase {
       century,
     })
 
-    return null
+    return right(null)
   }
 }
