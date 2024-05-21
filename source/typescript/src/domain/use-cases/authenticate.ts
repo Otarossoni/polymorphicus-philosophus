@@ -14,7 +14,7 @@ interface AuthenticateUseCaseRequest {
 type AuthenticateUseCaseResponse = Either<
   WrongCredentialsError,
   {
-    accessToken: string
+    access_token: string
   }
 >
 
@@ -44,10 +44,10 @@ export class AuthenticateUseCase {
       return left(new WrongCredentialsError())
     }
 
-    const accessToken = await this.encrypterRepository.encrypt({
+    const access_token = await this.encrypterRepository.encrypt({
       sub: user.id,
     })
 
-    return right({ accessToken })
+    return right({ access_token })
   }
 }
