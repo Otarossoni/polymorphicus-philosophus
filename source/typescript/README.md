@@ -20,6 +20,6 @@
   - [ ] Rota autenticada `GET: /api/quote/random`
   - [ ] Rota autenticada `GET: /api/quote/daily`
 - [ ] Swagger em todas as rotas
-  - [ ] Rota pública `GET /api-docs`
+  - [X] Rota pública `GET /api-docs`
 - [ ] Testes automatizados onde for possível testar
 - [ ] Uma rotina de execução diária

@@ -1,6 +1,9 @@
 import { FastifyInstance, fastify } from 'fastify'
 import fastifyJwt from '@fastify/jwt'
 import fastifyCors from '@fastify/cors'
+import fastifySwagger from '@fastify/swagger'
+import fastifySwaggerUi from '@fastify/swagger-ui'
+
 import { ZodError } from 'zod'
 
 import { env } from './env/variables'
@@ -21,6 +24,32 @@ app.register(fastifyJwt, {
 
 app.register(fastifyCors, {
   origin: true,
+})
+
+app.register(fastifySwagger, {
+  swagger: {
+    info: {
+      title: 'Polymorphicus Philosophus',
+      description: 'API of Polymorphicus Philosophus.',
+      version: '1.0.0',
+      contact: {
+        email: 'otarossoni@gmail.com',
+      },
+    },
+    securityDefinitions: {
+      Bearer: {
+        type: 'apiKey',
+        name: 'Authorization',
+        in: 'header',
+      },
+    },
+  },
+})
+app.register(fastifySwaggerUi, {
+  routePrefix: '/api-docs',
+  theme: {
+    title: 'Polymorphicus Philosophus API',
+  },
 })
 
 app.register(healthCheckRoutes, { prefix: 'api' })
