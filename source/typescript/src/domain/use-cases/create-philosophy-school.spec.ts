@@ -3,6 +3,7 @@ import { describe, beforeEach, it, expect } from 'vitest'
 import { CreatePhilosophySchoolUseCase } from './create-philosophy-school'
 
 import { InMemoryPhilosophySchoolRepository } from 'test/repositories/database/in-memory-philosophy-school-repository'
+
 import { ResourceAlreadyExistsError } from './errors/resource-already-exists-error'
 
 let inMemoryPhilosophySchoolRepository: InMemoryPhilosophySchoolRepository

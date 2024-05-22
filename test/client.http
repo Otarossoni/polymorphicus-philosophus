@@ -35,3 +35,17 @@ Authorization: Bearer {{authToken}}
 }
 
 ###
+
+# @name create_philosopher
+POST {{baseUrl}}/philosopher
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Sócrates",
+  "nationality": "Ateniense",
+  "born_date": "0470-01-01T00:00:00Z A.C.",
+  "death_date": "0399-01-01T00:00:00Z A.C."
+}
+  
+###

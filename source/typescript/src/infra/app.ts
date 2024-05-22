@@ -8,6 +8,7 @@ import { env } from './env/variables'
 import { healthCheckRoutes } from './http/controllers/healthCheck/routes'
 import { authRoutes } from './http/controllers/authentication/routes'
 import { philosophySchoolRoutes } from './http/controllers/philosophy-school/routes'
+import { philosopherRoutes } from './http/controllers/philosopher/routes'
 
 export const app: FastifyInstance = fastify()
 
@@ -25,6 +26,7 @@ app.register(fastifyCors, {
 app.register(healthCheckRoutes, { prefix: 'api' })
 app.register(authRoutes, { prefix: 'api' })
 app.register(philosophySchoolRoutes, { prefix: 'api' })
+app.register(philosopherRoutes, { prefix: 'api' })
 
 app.setErrorHandler((error, _request, reply) => {
   if (error instanceof ZodError) {

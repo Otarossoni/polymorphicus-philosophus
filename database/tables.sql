@@ -20,8 +20,8 @@ CREATE TABLE public.philosopher (
   id char(36) PRIMARY KEY,
   name varchar(255) NOT NULL,
   nationality varchar(255) NOT NULL,
-  born_date Date NOT NULL,
-  death_date Date NOT NULL
+  born_date varchar(25),
+  death_date varchar(25)
 );
 
 CREATE TABLE public.philosopher_school (
