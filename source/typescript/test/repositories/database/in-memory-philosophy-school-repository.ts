@@ -8,7 +8,17 @@ export class InMemoryPhilosophySchoolRepository
 {
   public items: PhilosophySchool[] = []
 
-  async findByName(name: string): Promise<PhilosophySchool> {
+  async findById(id: string): Promise<PhilosophySchool | null> {
+    const philosophySchool = this.items.find((item) => item.id === id)
+
+    if (!philosophySchool) {
+      return null
+    }
+
+    return philosophySchool
+  }
+
+  async findByName(name: string): Promise<PhilosophySchool | null> {
     const philosophySchool = this.items.find((item) => item.name === name)
 
     if (!philosophySchool) {

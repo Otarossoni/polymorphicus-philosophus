@@ -10,6 +10,15 @@ const PHILOSOPHY_SCHOOL_TABLE = 'public.philosophy_school'
 export class KnexPhilosophySchoolRepository
   implements PhilosophySchoolRepository
 {
+  async findById(id: string): Promise<PhilosophySchool> {
+    const [philosophySchool]: PhilosophySchool[] = await knex
+      .select('*')
+      .from(PHILOSOPHY_SCHOOL_TABLE)
+      .where({ id })
+
+    return philosophySchool
+  }
+
   async findByName(name: string): Promise<PhilosophySchool | null> {
     const [philosophySchool]: PhilosophySchool[] = await knex
       .select('*')

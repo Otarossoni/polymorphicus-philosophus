@@ -7,6 +7,7 @@ import { InMemoryPhilosopherSchoolRepository } from 'test/repositories/database/
 import { InMemoryPhilosophySchoolRepository } from 'test/repositories/database/in-memory-philosophy-school-repository'
 
 import { ResourceAlreadyExistsError } from './errors/resource-already-exists-error'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 let inMemoryPhilosopherRepository: InMemoryPhilosopherRepository
 let inMemoryPhilosopherSchoolRepository: InMemoryPhilosopherSchoolRepository
@@ -25,6 +26,7 @@ describe('Create Philosopher', () => {
     sut = new CreatePhilosopherUseCase(
       inMemoryPhilosopherRepository,
       inMemoryPhilosopherSchoolRepository,
+      inMemoryPhilosophySchoolRepository,
     )
   })
 
@@ -74,5 +76,33 @@ describe('Create Philosopher', () => {
     expect(result.isLeft()).toBe(true)
     expect(inMemoryPhilosopherRepository.items.length).toEqual(1)
     expect(result.value).instanceOf(ResourceAlreadyExistsError)
+  })
+
+  it('should not be able to create a philosopher without schoolId', async () => {
+    const result = await sut.execute({
+      name: 'Philosopher',
+      nationality: 'Philosopher Nationality',
+      born_date: '9999-01-01T00:00:00Z A.C.',
+      death_date: '9999-01-01T00:00:00Z B.C.',
+      school_id: '',
+    })
+
+    expect(result.isLeft()).toBe(true)
+    expect(result.value).instanceOf(ResourceNotFoundError)
+    expect(inMemoryPhilosopherRepository.items.length).toEqual(0)
+  })
+
+  it('should not be able to create a philosopher with invalid schoolId', async () => {
+    const result = await sut.execute({
+      name: 'Philosopher',
+      nationality: 'Philosopher Nationality',
+      born_date: '9999-01-01T00:00:00Z A.C.',
+      death_date: '9999-01-01T00:00:00Z B.C.',
+      school_id: 'school_id',
+    })
+
+    expect(result.isLeft()).toBe(true)
+    expect(result.value).instanceOf(ResourceNotFoundError)
+    expect(inMemoryPhilosopherRepository.items.length).toEqual(0)
   })
 })

@@ -2,8 +2,10 @@ import { Either, left, right } from '../../core/errors/either'
 
 import { PhilosopherRepository } from '../repositories/database/philosopher-repository'
 import { PhilosopherSchoolRepository } from '../repositories/database/philosopher-school-repository'
+import { PhilosophySchoolRepository } from '../repositories/database/philosophy-school-repository'
 
 import { ResourceAlreadyExistsError } from './errors/resource-already-exists-error'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 interface CreatePhilosopherUseCaseRequest {
   name: string
@@ -19,6 +21,7 @@ export class CreatePhilosopherUseCase {
   constructor(
     private philosopherRepository: PhilosopherRepository,
     private philosopherSchoolRepository: PhilosopherSchoolRepository,
+    private philosophySchoolRepository: PhilosophySchoolRepository,
   ) {}
 
   async execute({
@@ -33,6 +36,13 @@ export class CreatePhilosopherUseCase {
 
     if (philosopherAlreadyExists) {
       return left(new ResourceAlreadyExistsError('Philosopher'))
+    }
+
+    const philosophySchoolExistes =
+      await this.philosophySchoolRepository.findById(school_id)
+
+    if (!philosophySchoolExistes) {
+      return left(new ResourceNotFoundError('Philosophy School'))
     }
 
     const { id } = await this.philosopherRepository.create({
