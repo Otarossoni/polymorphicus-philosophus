@@ -13,5 +13,8 @@ app
   })
   .then(async () => {
     await checkDatabaseAvailability()
-    console.log(`HTTP server running on http://localhost:${apiPort}`)
+    console.info(`HTTP server running on http://localhost:${apiPort}`)
+    console.info(
+      `API documentation available on http://localhost:${apiPort}/api-docs`,
+    )
   })

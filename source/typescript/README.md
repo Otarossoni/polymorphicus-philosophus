@@ -8,7 +8,7 @@
 - [ ] Cinco endpoints voltados a criação de entidades
   - [X] Rota autenticada `POST: /api/school`
   - [X] Rota autenticada `POST: /api/philosopher`
-  - [ ] Rota autenticada `POST: /api/philosopher/link`
+  - [X] Rota autenticada `POST: /api/philosopher/link`
   - [ ] Rota autenticada `POST: /api/quote`
   - [ ] Rota autenticada `POST: /api/quote/list`
 - [ ] Sete endpoints voltados a busca de entidades

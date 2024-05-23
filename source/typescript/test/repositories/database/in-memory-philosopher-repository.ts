@@ -6,6 +6,16 @@ import { PhilosopherRepository } from '../../../src/domain/repositories/database
 export class InMemoryPhilosopherRepository implements PhilosopherRepository {
   public items: Philosopher[] = []
 
+  async findById(id: string): Promise<Philosopher> {
+    const philosopher = this.items.find((item) => item.id === id)
+
+    if (!philosopher) {
+      return null
+    }
+
+    return philosopher
+  }
+
   async findByName(name: string): Promise<Philosopher> {
     const philosopher = this.items.find((item) => item.name === name)
 

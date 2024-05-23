@@ -30,8 +30,8 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "name": "Filosofia Grega Pré-Socrática",
-  "century": "V a.C."
+  "name": "Cartesianismo",
+  "century": "XVII e XVIII d.C."
 }
 
 ###
@@ -42,11 +42,23 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "name": "Sócrates",
-  "nationality": "Ateniense",
-  "born_date": "0470-01-01T00:00:00Z A.C.",
-  "death_date": "0399-01-01T00:00:00Z A.C.",
-  "school_id": "577be6f0-2f78-4baa-8938-864ac3f0828f"
+  "name": "René Descartes",
+  "nationality": "Francês",
+  "born_date": "1596-03-31T00:00:00Z B.C.",
+  "death_date": "1650-02-11T00:00:00Z B.C.",
+  "school_id": "2016d224-c038-45c0-b3ca-96803db5ada7"
+}
+  
+###
+
+# @name link_philosopher_to_philosophy_school
+POST {{baseUrl}}/philosopher/link
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "philosopher_id": "8b23067c-cbf6-4a5a-9b40-fa93d03e4095",
+  "school_id": "13a8f966-bcac-4b31-8e8e-0142cc45d173"
 }
   
 ###
