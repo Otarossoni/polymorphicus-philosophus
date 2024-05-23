@@ -19,17 +19,16 @@ export class KnexPhilosophySchoolRepository
     return philosophySchool
   }
 
-  async create(data: PhilosophySchool): Promise<void> {
+  async create(data: PhilosophySchool): Promise<PhilosophySchool> {
+    const newPhilosopherSchool: PhilosophySchool = { id: randomUUID(), ...data }
+
     await knex(PHILOSOPHY_SCHOOL_TABLE)
-      .insert({
-        id: randomUUID(),
-        ...data,
-      })
+      .insert(newPhilosopherSchool)
       .then()
       .catch((err) => {
         console.error(err)
       })
 
-    return
+    return newPhilosopherSchool
   }
 }

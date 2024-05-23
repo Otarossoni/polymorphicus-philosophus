@@ -1,12 +1,15 @@
 import { KnexPhilosopherRepository } from '../../infra/database/knex/knex-philosopher-repository'
+import { KnexPhilosopherSchoolRepository } from 'src/infra/database/knex/knex-philosopher-school-repository'
 
 import { CreatePhilosopherUseCase } from '../use-cases/create-philosopher'
 
 export function makePhilosopherUseCase() {
-  const philosophySchoolRepository = new KnexPhilosopherRepository()
+  const philosopherRepository = new KnexPhilosopherRepository()
+  const philosopherSchoolRepository = new KnexPhilosopherSchoolRepository()
 
   const createPhilosopher = new CreatePhilosopherUseCase(
-    philosophySchoolRepository,
+    philosopherRepository,
+    philosopherSchoolRepository,
   )
 
   return createPhilosopher

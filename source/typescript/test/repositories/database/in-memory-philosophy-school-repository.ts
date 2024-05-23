@@ -18,14 +18,14 @@ export class InMemoryPhilosophySchoolRepository
     return philosophySchool
   }
 
-  async create(data: PhilosophySchool): Promise<void> {
-    const philosophySchool = {
+  async create(data: PhilosophySchool): Promise<PhilosophySchool> {
+    const newPhilosophySchool = {
       id: randomUUID(),
       ...data,
     }
 
-    this.items.push(philosophySchool)
+    this.items.push(newPhilosophySchool)
 
-    return
+    return newPhilosophySchool
   }
 }

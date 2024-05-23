@@ -16,14 +16,14 @@ export class InMemoryUserRepository implements UserRepository {
     return user
   }
 
-  async create(data: User): Promise<void> {
-    const user = {
+  async create(data: User): Promise<User> {
+    const newUser = {
       id: randomUUID(),
       ...data,
     }
 
-    this.items.push(user)
+    this.items.push(newUser)
 
-    return
+    return newUser
   }
 }

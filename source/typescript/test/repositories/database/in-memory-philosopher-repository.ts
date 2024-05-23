@@ -16,14 +16,14 @@ export class InMemoryPhilosopherRepository implements PhilosopherRepository {
     return philosopher
   }
 
-  async create(data: Philosopher): Promise<void> {
-    const philosopher = {
+  async create(data: Philosopher): Promise<Philosopher> {
+    const newPhilosopher: Philosopher = {
       id: randomUUID(),
       ...data,
     }
 
-    this.items.push(philosopher)
+    this.items.push(newPhilosopher)
 
-    return
+    return newPhilosopher
   }
 }

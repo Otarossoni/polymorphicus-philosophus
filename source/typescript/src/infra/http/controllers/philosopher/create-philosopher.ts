@@ -16,9 +16,10 @@ export async function createPhilosopher(
     nationality: z.string(),
     born_date: z.string(),
     death_date: z.string(),
+    school_id: z.string(),
   })
 
-  const { name, nationality, born_date, death_date } =
+  const { name, nationality, born_date, death_date, school_id } =
     createPhilosopherBodySchema.parse(request.body)
 
   const isBornDateValid = validateBcAcDate(born_date)
@@ -40,6 +41,7 @@ export async function createPhilosopher(
     nationality,
     born_date,
     death_date,
+    school_id,
   })
 
   if (result.isLeft()) {

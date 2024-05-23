@@ -17,17 +17,16 @@ export class KnexUserRepository implements UserRepository {
     return user
   }
 
-  async create(data: User): Promise<void> {
+  async create(data: User): Promise<User> {
+    const newUser: User = { id: randomUUID(), ...data }
+
     await knex(USER_TABLE)
-      .insert({
-        id: randomUUID(),
-        ...data,
-      })
+      .insert(newUser)
       .then()
       .catch((err) => {
         console.error(err)
       })
 
-    return
+    return newUser
   }
 }

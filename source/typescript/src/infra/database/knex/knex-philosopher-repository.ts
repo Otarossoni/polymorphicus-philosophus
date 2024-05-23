@@ -17,17 +17,16 @@ export class KnexPhilosopherRepository implements PhilosopherRepository {
     return philosopher
   }
 
-  async create(data: Philosopher): Promise<void> {
+  async create(data: Philosopher): Promise<Philosopher> {
+    const newPhilosopher: Philosopher = { id: randomUUID(), ...data }
+
     await knex(PHILOSOPHER_TABLE)
-      .insert({
-        id: randomUUID(),
-        ...data,
-      })
+      .insert(newPhilosopher)
       .then()
       .catch((err) => {
         console.error(err)
       })
 
-    return
+    return newPhilosopher
   }
 }
