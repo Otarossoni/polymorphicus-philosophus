@@ -52,5 +52,5 @@ export async function createPhilosopher(
     }
   }
 
-  return reply.status(201).send()
+  return reply.status(201).send(result.value)
 }

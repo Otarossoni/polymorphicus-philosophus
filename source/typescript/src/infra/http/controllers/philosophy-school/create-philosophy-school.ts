@@ -28,5 +28,5 @@ export async function createPhilosophySchool(
     }
   }
 
-  return reply.status(201).send()
+  return reply.status(201).send(result.value)
 }

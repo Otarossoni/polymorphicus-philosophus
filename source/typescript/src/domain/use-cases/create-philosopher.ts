@@ -1,5 +1,7 @@
 import { Either, left, right } from '../../core/errors/either'
 
+import { Philosopher } from '../models/database/philosopher'
+
 import { PhilosopherRepository } from '../repositories/database/philosopher-repository'
 import { PhilosopherSchoolRepository } from '../repositories/database/philosopher-school-repository'
 import { PhilosophySchoolRepository } from '../repositories/database/philosophy-school-repository'
@@ -15,7 +17,10 @@ interface CreatePhilosopherUseCaseRequest {
   school_id: string
 }
 
-type CreatePhilosopherUseCaseResponse = Either<ResourceAlreadyExistsError, null>
+type CreatePhilosopherUseCaseResponse = Either<
+  ResourceAlreadyExistsError,
+  { philosopher: Philosopher }
+>
 
 export class CreatePhilosopherUseCase {
   constructor(
@@ -45,7 +50,7 @@ export class CreatePhilosopherUseCase {
       return left(new ResourceNotFoundError('Philosophy School'))
     }
 
-    const { id } = await this.philosopherRepository.create({
+    const philosopher = await this.philosopherRepository.create({
       name,
       nationality,
       born_date,
@@ -54,9 +59,9 @@ export class CreatePhilosopherUseCase {
 
     await this.philosopherSchoolRepository.create({
       school_id,
-      philosopher_id: id,
+      philosopher_id: philosopher.id,
     })
 
-    return right(null)
+    return right({ philosopher })
   }
 }

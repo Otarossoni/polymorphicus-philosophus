@@ -1,5 +1,7 @@
 import { Either, left, right } from '../../core/errors/either'
 
+import { PhilosophySchool } from '../models/database/philosophy-school'
+
 import { PhilosophySchoolRepository } from '../repositories/database/philosophy-school-repository'
 
 import { ResourceAlreadyExistsError } from './errors/resource-already-exists-error'
@@ -11,7 +13,7 @@ interface CreatePhilosophySchoolUseCaseRequest {
 
 type CreatePhilosophySchoolUseCaseResponse = Either<
   ResourceAlreadyExistsError,
-  null
+  { philosophy_school: PhilosophySchool }
 >
 
 export class CreatePhilosophySchoolUseCase {
@@ -28,11 +30,11 @@ export class CreatePhilosophySchoolUseCase {
       return left(new ResourceAlreadyExistsError('Philosophy School'))
     }
 
-    await this.philosophySchoolRepository.create({
+    const philosophy_school = await this.philosophySchoolRepository.create({
       name,
       century,
     })
 
-    return right(null)
+    return right({ philosophy_school })
   }
 }

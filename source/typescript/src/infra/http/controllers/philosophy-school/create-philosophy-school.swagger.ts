@@ -19,7 +19,26 @@ export const createPhilosophySchoolSwagger = {
   response: {
     201: {
       description: 'Successful response',
-      type: 'null',
+      type: 'object',
+      properties: {
+        philosophy_school: {
+          type: 'object',
+          properties: {
+            id: {
+              type: 'string',
+              description: 'Philosophy school id',
+            },
+            name: {
+              type: 'string',
+              description: 'Philosophy school name',
+            },
+            century: {
+              type: 'string',
+              description: 'Philosophy school century',
+            },
+          },
+        },
+      },
     },
     409: {
       description: 'Conflict response',

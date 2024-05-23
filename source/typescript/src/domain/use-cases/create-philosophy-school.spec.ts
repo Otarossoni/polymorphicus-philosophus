@@ -25,7 +25,7 @@ describe('Create Philosophy School', () => {
     })
 
     expect(result.isRight()).toBe(true)
-    expect(result.value).toEqual(null)
+    expect(result.value).toEqual(expect.any(Object))
     expect(inMemoryPhilosophySchoolRepository.items.length).toEqual(1)
   })
 

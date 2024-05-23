@@ -46,7 +46,7 @@ describe('Create Philosopher', () => {
     })
 
     expect(result.isRight()).toBe(true)
-    expect(result.value).toEqual(null)
+    expect(result.value).toEqual(expect.any(Object))
     expect(inMemoryPhilosopherRepository.items.length).toEqual(1)
   })
 

@@ -29,9 +29,40 @@ export const createPhilosopherSwagger = {
     },
   },
   response: {
-    201: {
+    200: {
       description: 'Successful response',
-      type: 'null',
+      type: 'object',
+      properties: {
+        philosopher: {
+          type: 'object',
+          properties: {
+            id: {
+              type: 'string',
+              description: 'Philosopher id',
+            },
+            name: {
+              type: 'string',
+              description: 'Philosopher name',
+            },
+            nationality: {
+              type: 'string',
+              description: 'Philosopher nationality',
+            },
+            born_date: {
+              type: 'string',
+              description: 'Philosopher born date',
+            },
+            death_date: {
+              type: 'string',
+              description: 'Philosopher death date',
+            },
+            school_id: {
+              type: 'string',
+              description: 'Philosophy school linked',
+            },
+          },
+        },
+      },
     },
     400: {
       description: 'Bad request',
