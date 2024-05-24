@@ -34,7 +34,7 @@ CREATE TABLE public.philosopher_school (
 
 CREATE TABLE public.quote (
   id char(36) PRIMARY KEY,
-  quote varchar(500) NOT NULL,
+  phrase varchar(500) NOT NULL,
   philosopher_id char(36) NOT NULL,
   FOREIGN KEY (philosopher_id) REFERENCES philosopher(id)
 );

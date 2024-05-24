@@ -62,3 +62,15 @@ Authorization: Bearer {{authToken}}
 }
   
 ###
+
+# @name create_quote
+POST {{baseUrl}}/quote
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "phrase": "I think, therefore I Am",
+  "philosopher_id": "8b23067c-cbf6-4a5a-9b40-fa93d03e4095"
+}
+  
+###

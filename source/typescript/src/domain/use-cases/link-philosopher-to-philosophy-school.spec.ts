@@ -6,7 +6,7 @@ import { InMemoryPhilosopherRepository } from 'test/repositories/database/in-mem
 import { InMemoryPhilosopherSchoolRepository } from 'test/repositories/database/in-memory-philosopher-school-repository'
 import { InMemoryPhilosophySchoolRepository } from 'test/repositories/database/in-memory-philosophy-school-repository'
 
-// import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 let inMemoryPhilosopherRepository: InMemoryPhilosopherRepository
 let inMemoryPhilosopherSchoolRepository: InMemoryPhilosopherSchoolRepository
@@ -29,7 +29,7 @@ describe('Link philosopher to philosophy school', () => {
     )
   })
 
-  it('should be able to lint a philosopher to philosophy school', async () => {
+  it('should be able to link a philosopher to philosophy school', async () => {
     const philosophySchool = await inMemoryPhilosophySchoolRepository.create({
       id: 'ID1',
       name: '',
@@ -65,7 +65,7 @@ describe('Link philosopher to philosophy school', () => {
     expect(inMemoryPhilosopherSchoolRepository.items).toHaveLength(2)
   })
 
-  it('should be not able to lint a philosopher to philosophy school with non existing philosopher', async () => {
+  it('should be not able to link a philosopher to philosophy school with non existing philosopher', async () => {
     const philosophySchool = await inMemoryPhilosophySchoolRepository.create({
       id: 'ID1',
       name: '',
@@ -78,10 +78,11 @@ describe('Link philosopher to philosophy school', () => {
     })
 
     expect(result.isLeft()).toBeTruthy()
+    expect(result.value).instanceOf(ResourceNotFoundError)
     expect(inMemoryPhilosopherSchoolRepository.items).toHaveLength(0)
   })
 
-  it('should be not able to lint a philosopher to philosophy school with non existing philosophy school', async () => {
+  it('should be not able to link a philosopher to philosophy school with non existing philosophy school', async () => {
     const philosopher = await inMemoryPhilosopherRepository.create({
       name: 'Philosopher',
       nationality: 'Philosopher Nationality',
@@ -95,6 +96,7 @@ describe('Link philosopher to philosophy school', () => {
     })
 
     expect(result.isLeft()).toBeTruthy()
+    expect(result.value).instanceOf(ResourceNotFoundError)
     expect(inMemoryPhilosopherSchoolRepository.items).toHaveLength(0)
   })
 })
