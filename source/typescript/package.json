@@ -6,6 +6,7 @@
   "scripts": {
     "check": "tsc --noEmit",
     "dev": "tsx watch src/index.ts",
+    "dev:all": "npm run lint && npm run check && npm run test && npm run dev",
     "lint": "eslint src --ext .ts --fix",
     "test": "vitest run --dir src",
     "test:watch": "vitest --dir src",

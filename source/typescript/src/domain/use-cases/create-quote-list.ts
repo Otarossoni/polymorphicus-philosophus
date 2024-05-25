@@ -1,23 +1,27 @@
 import { Either, left, right } from 'src/core/errors/either'
 
 import { Quote } from '../models/database/quote'
+import { Philosopher } from '../models/database/philosopher'
 
 import { QuoteRepository } from '../repositories/database/quote-repository'
 import { PhilosopherRepository } from '../repositories/database/philosopher-repository'
 
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
-interface CreateQuoteUseCaseRequest {
+interface CreateQuoteListUseCaseRequest {
   philosopher_id: string
-  phrase: string
+  phrases: string[]
 }
 
-type CreateQuoteUseCaseResponse = Either<
+type CreateQuoteListUseCaseResponse = Either<
   ResourceNotFoundError,
-  { quote: Quote }
+  {
+    philosopher: Philosopher
+    quotes: Quote[]
+  }
 >
 
-export class CreateQuoteUseCase {
+export class CreateQuoteListUseCase {
   constructor(
     private quoteRepository: QuoteRepository,
     private philosopherRepository: PhilosopherRepository,
@@ -25,8 +29,8 @@ export class CreateQuoteUseCase {
 
   async execute({
     philosopher_id,
-    phrase,
-  }: CreateQuoteUseCaseRequest): Promise<CreateQuoteUseCaseResponse> {
+    phrases,
+  }: CreateQuoteListUseCaseRequest): Promise<CreateQuoteListUseCaseResponse> {
     const philosopherAlreadyExists =
       await this.philosopherRepository.findById(philosopher_id)
 
@@ -34,11 +38,19 @@ export class CreateQuoteUseCase {
       return left(new ResourceNotFoundError('Philosopher'))
     }
 
-    const quote = await this.quoteRepository.create({
-      phrase,
-      philosopher_id,
-    })
+    const quotes = []
 
-    return right({ quote })
+    for (const phrase of phrases) {
+      const quote = await this.quoteRepository.create({
+        phrase,
+        philosopher_id,
+      })
+
+      delete quote.philosopher_id
+
+      quotes.push(quote)
+    }
+
+    return right({ philosopher: philosopherAlreadyExists, quotes })
   }
 }

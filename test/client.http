@@ -69,8 +69,20 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "phrase": "I think, therefore I Am",
-  "philosopher_id": "8b23067c-cbf6-4a5a-9b40-fa93d03e4095"
+  "philosopher_id": "8b23067c-cbf6-4a5a-9b40-fa93d03e4095",
+  "phrase": "I think, therefore I Am"
+}
+  
+###
+
+# @name create_quote_list
+POST {{baseUrl}}/quote/list
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "philosopher_id": "8b23067c-cbf6-4a5a-9b40-fa93d03e4095",
+  "phrases": ["I think, therefore I Am", "The greatest minds are capable of the greatest vices as well as of the greatest virtues."]
 }
   
 ###

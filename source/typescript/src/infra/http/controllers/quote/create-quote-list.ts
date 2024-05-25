@@ -1,24 +1,29 @@
 import { z } from 'zod'
 import { FastifyRequest, FastifyReply } from 'fastify'
 
-import { makeCreateQuoteUseCase } from 'src/domain/factories/make-create-quote'
+import { makeCreateQuoteListUseCase } from 'src/domain/factories/make-create-quote-list'
 
 import { ResourceNotFoundError } from 'src/domain/use-cases/errors/resource-not-found-error'
 
-export async function createQuote(
+export async function createQuoteList(
   request: FastifyRequest,
   reply: FastifyReply,
 ) {
-  const createQuoteBodySchema = z.object({
+  const createQuoteListBodySchema = z.object({
     philosopher_id: z.string(),
-    phrase: z.string(),
+    phrases: z.array(z.string()),
   })
 
-  const { philosopher_id, phrase } = createQuoteBodySchema.parse(request.body)
+  const { philosopher_id, phrases } = createQuoteListBodySchema.parse(
+    request.body,
+  )
 
-  const createQuoteUseCase = makeCreateQuoteUseCase()
+  const createQuoteListUseCase = makeCreateQuoteListUseCase()
 
-  const result = await createQuoteUseCase.execute({ philosopher_id, phrase })
+  const result = await createQuoteListUseCase.execute({
+    philosopher_id,
+    phrases,
+  })
 
   if (result.isLeft()) {
     const error = result.value
@@ -27,6 +32,8 @@ export async function createQuote(
       return reply.status(409).send({ message: error.message })
     }
   }
+
+  console.log(result.value)
 
   return reply.status(201).send(result.value)
 }

@@ -6,13 +6,13 @@ export const createQuoteSwagger = {
   body: {
     type: 'object',
     properties: {
-      phrase: {
-        type: 'string',
-        description: 'Phrase',
-      },
       philosopher_id: {
         type: 'string',
         description: 'Philosopher id',
+      },
+      phrase: {
+        type: 'string',
+        description: 'Phrase',
       },
     },
   },
@@ -26,7 +26,7 @@ export const createQuoteSwagger = {
           properties: {
             id: {
               type: 'string',
-              description: 'Philosophy school id',
+              description: 'Quote id',
             },
             phrase: {
               type: 'string',

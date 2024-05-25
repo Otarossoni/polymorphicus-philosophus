@@ -1,6 +1,6 @@
 import { describe, beforeEach, it, expect } from 'vitest'
 
-import { CreateQuoteUseCase } from './create-quote'
+import { CreateQuoteListUseCase } from './create-quote-list'
 
 import { InMemoryPhilosopherRepository } from 'test/repositories/database/in-memory-philosopher-repository'
 import { InMemoryQuoteRepository } from 'test/repositories/database/in-memory-quote-repository'
@@ -10,20 +10,20 @@ import { ResourceNotFoundError } from './errors/resource-not-found-error'
 let inMemoryQuoteRepository: InMemoryQuoteRepository
 let inMemoryPhilosopherRepository: InMemoryPhilosopherRepository
 
-let sut: CreateQuoteUseCase
+let sut: CreateQuoteListUseCase
 
-describe('Create quote', () => {
+describe('Create quote list', () => {
   beforeEach(() => {
     inMemoryQuoteRepository = new InMemoryQuoteRepository()
     inMemoryPhilosopherRepository = new InMemoryPhilosopherRepository()
 
-    sut = new CreateQuoteUseCase(
+    sut = new CreateQuoteListUseCase(
       inMemoryQuoteRepository,
       inMemoryPhilosopherRepository,
     )
   })
 
-  it('should be able to create a new quote', async () => {
+  it('should be able to create a new quote using a list', async () => {
     const philosopher = await inMemoryPhilosopherRepository.create({
       name: 'Philosopher',
       nationality: 'Philosopher Nationality',
@@ -33,17 +33,23 @@ describe('Create quote', () => {
 
     const result = await sut.execute({
       philosopher_id: philosopher.id,
-      phrase: 'I think, therefore I Am',
+      phrases: [
+        'I think, therefore I Am',
+        'The greatest minds are capable of the greatest vices as well as of the greatest virtues.',
+      ],
     })
 
     expect(result.isRight()).toBeTruthy()
-    expect(inMemoryQuoteRepository.items).toHaveLength(1)
+    expect(inMemoryQuoteRepository.items).toHaveLength(2)
   })
 
-  it('should not be able to create a new quote with non existing philosopher', async () => {
+  it('should not be able to create a new quote using a list with non existing philosopher', async () => {
     const result = await sut.execute({
       philosopher_id: '123',
-      phrase: 'I think, therefore I Am',
+      phrases: [
+        'I think, therefore I Am',
+        'The greatest minds are capable of the greatest vices as well as of the greatest virtues.',
+      ],
     })
 
     expect(result.isLeft()).toBeTruthy()
