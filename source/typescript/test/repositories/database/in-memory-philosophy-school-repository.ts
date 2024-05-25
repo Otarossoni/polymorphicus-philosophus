@@ -28,6 +28,10 @@ export class InMemoryPhilosophySchoolRepository
     return philosophySchool
   }
 
+  async findByAll(): Promise<PhilosophySchool[]> {
+    return this.items
+  }
+
   async create(data: PhilosophySchool): Promise<PhilosophySchool> {
     const newPhilosophySchool = {
       id: randomUUID(),

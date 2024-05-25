@@ -28,6 +28,14 @@ export class KnexPhilosophySchoolRepository
     return philosophySchool
   }
 
+  async findByAll(): Promise<PhilosophySchool[]> {
+    const philosophySchools: PhilosophySchool[] = await knex
+      .select('*')
+      .from(PHILOSOPHY_SCHOOL_TABLE)
+
+    return philosophySchools
+  }
+
   async create(data: PhilosophySchool): Promise<PhilosophySchool> {
     const newPhilosopherSchool: PhilosophySchool = { id: randomUUID(), ...data }
 

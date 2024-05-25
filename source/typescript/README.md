@@ -12,7 +12,7 @@
   - [X] Rota autenticada `POST: /api/quote`
   - [X] Rota autenticada `POST: /api/quote/list`
 - [ ] Sete endpoints voltados a busca de entidades
-  - [ ] Rota autenticada `GET: /api/school`
+  - [X] Rota autenticada `GET: /api/school`
   - [ ] Rota autenticada `GET: /api/school/:id`
   - [ ] Rota autenticada `GET: /api/philosopher`
   - [ ] Rota autenticada `GET: /api/philosopher/:id`
