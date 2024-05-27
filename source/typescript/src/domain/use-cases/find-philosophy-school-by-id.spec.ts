@@ -1,6 +1,6 @@
 import { describe, beforeEach, it, expect } from 'vitest'
 
-import { FindPhilosophySchoolByIdUseCase } from './find-school-by-id'
+import { FindPhilosophySchoolByIdUseCase } from './find-philosophy-school-by-id'
 
 import { InMemoryPhilosophySchoolRepository } from 'test/repositories/database/in-memory-philosophy-school-repository'
 
@@ -8,7 +8,7 @@ let inMemoryPhilosophySchoolRepository: InMemoryPhilosophySchoolRepository
 
 let sut: FindPhilosophySchoolByIdUseCase
 
-describe('Fetch Philosophy Schools', () => {
+describe('Find Philosophy School By Id', () => {
   beforeEach(() => {
     inMemoryPhilosophySchoolRepository =
       new InMemoryPhilosophySchoolRepository()

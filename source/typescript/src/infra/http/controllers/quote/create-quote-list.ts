@@ -33,7 +33,5 @@ export async function createQuoteList(
     }
   }
 
-  console.log(result.value)
-
   return reply.status(201).send(result.value)
 }

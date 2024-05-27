@@ -26,6 +26,14 @@ export class KnexPhilosopherRepository implements PhilosopherRepository {
     return philosopher
   }
 
+  async findByAll(): Promise<Philosopher[]> {
+    const philosophers: Philosopher[] = await knex
+      .select('*')
+      .from(PHILOSOPHER_TABLE)
+
+    return philosophers
+  }
+
   async create(data: Philosopher): Promise<Philosopher> {
     const newPhilosopher: Philosopher = { id: randomUUID(), ...data }
 

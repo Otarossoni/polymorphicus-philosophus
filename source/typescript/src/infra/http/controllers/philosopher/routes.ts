@@ -2,6 +2,9 @@ import { FastifyInstance } from 'fastify'
 
 import { verifyJwt } from '../../middlewares/verify-jwt'
 
+import { fetchPhilosophers } from './fetch-philosophers'
+import { fetchPhilosophersSwagger } from './fetch-philosophers.swagger'
+
 import { createPhilosopher } from './create-philosopher'
 import { createPhilosopherSwagger } from './create-philosopher.swagger'
 
@@ -10,6 +13,12 @@ import { linkPhilosopherToPhilosophySchoolSwagger } from './link-philosopher-to-
 
 export async function philosopherRoutes(app: FastifyInstance) {
   app.addHook('onRequest', verifyJwt)
+
+  app.get(
+    '/philosopher',
+    { schema: fetchPhilosophersSwagger },
+    fetchPhilosophers,
+  )
 
   app.post(
     '/philosopher',

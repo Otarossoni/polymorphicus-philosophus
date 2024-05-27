@@ -1,6 +1,6 @@
 import { describe, beforeEach, it, expect } from 'vitest'
 
-import { FetchPhilosophySchoolsUseCase } from './fetch-schools'
+import { FetchPhilosophySchoolsUseCase } from './fetch-philosophy-schools'
 
 import { InMemoryPhilosophySchoolRepository } from 'test/repositories/database/in-memory-philosophy-school-repository'
 

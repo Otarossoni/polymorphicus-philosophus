@@ -26,6 +26,10 @@ export class InMemoryPhilosopherRepository implements PhilosopherRepository {
     return philosopher
   }
 
+  async findByAll(): Promise<Philosopher[]> {
+    return this.items
+  }
+
   async create(data: Philosopher): Promise<Philosopher> {
     const newPhilosopher: Philosopher = {
       id: randomUUID(),
