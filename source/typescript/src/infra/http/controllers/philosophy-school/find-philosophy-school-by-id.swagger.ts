@@ -1,23 +1,19 @@
-export const createPhilosophySchoolSwagger = {
+export const findPhilosophySchoolByIdSwagger = {
   description: 'Route to create a new philosophy school',
   tags: ['PhilosophySchool'],
   security: [{ Bearer: [] }],
   summary: 'Route to create a new philosophy school',
-  body: {
+  params: {
     type: 'object',
     properties: {
-      name: {
+      id: {
         type: 'string',
-        description: 'Philosophy school name',
-      },
-      century: {
-        type: 'string',
-        description: 'Philosophy school century',
+        description: 'Philosophy school id',
       },
     },
   },
   response: {
-    201: {
+    200: {
       description: 'Successful response',
       type: 'object',
       properties: {
@@ -40,8 +36,8 @@ export const createPhilosophySchoolSwagger = {
         },
       },
     },
-    409: {
-      description: 'Conflict response',
+    404: {
+      description: 'Not found response',
       type: 'object',
       properties: {
         message: { type: 'string' },

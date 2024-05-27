@@ -13,7 +13,7 @@ interface CreatePhilosophySchoolUseCaseRequest {
 
 type CreatePhilosophySchoolUseCaseResponse = Either<
   ResourceAlreadyExistsError,
-  { philosophy_school: PhilosophySchool }
+  { philosophySchool: PhilosophySchool }
 >
 
 export class CreatePhilosophySchoolUseCase {
@@ -30,11 +30,11 @@ export class CreatePhilosophySchoolUseCase {
       return left(new ResourceAlreadyExistsError('Philosophy School'))
     }
 
-    const philosophy_school = await this.philosophySchoolRepository.create({
+    const philosophySchool = await this.philosophySchoolRepository.create({
       name,
       century,
     })
 
-    return right({ philosophy_school })
+    return right({ philosophySchool })
   }
 }

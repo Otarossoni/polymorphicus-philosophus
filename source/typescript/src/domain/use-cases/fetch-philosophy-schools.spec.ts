@@ -1,19 +1,19 @@
 import { describe, beforeEach, it, expect } from 'vitest'
 
-import { FetchPhilosophySchoolUseCase } from './fetch-schools'
+import { FetchPhilosophySchoolsUseCase } from './fetch-schools'
 
 import { InMemoryPhilosophySchoolRepository } from 'test/repositories/database/in-memory-philosophy-school-repository'
 
 let inMemoryPhilosophySchoolRepository: InMemoryPhilosophySchoolRepository
 
-let sut: FetchPhilosophySchoolUseCase
+let sut: FetchPhilosophySchoolsUseCase
 
 describe('Fetch Philosophy Schools', () => {
   beforeEach(() => {
     inMemoryPhilosophySchoolRepository =
       new InMemoryPhilosophySchoolRepository()
 
-    sut = new FetchPhilosophySchoolUseCase(inMemoryPhilosophySchoolRepository)
+    sut = new FetchPhilosophySchoolsUseCase(inMemoryPhilosophySchoolRepository)
   })
 
   it('should be able to fetch all philosophy schools', async () => {

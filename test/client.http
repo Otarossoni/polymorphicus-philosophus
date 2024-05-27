@@ -93,3 +93,10 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
   
 ###
+
+# @name fetch_philosophy_schools
+GET {{baseUrl}}/school/2016d224-c038-45c0-b3ca-96803db5ada7
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+  
+###
