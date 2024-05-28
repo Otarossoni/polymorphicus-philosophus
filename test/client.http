@@ -121,3 +121,10 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
   
 ###
+
+# @name find_random_quote
+GET {{baseUrl}}/quote/random
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+  
+###

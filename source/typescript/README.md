@@ -17,7 +17,7 @@
   - [X] Rota autenticada `GET: /api/philosopher`
   - [X] Rota autenticada `GET: /api/philosopher/:id`
   - [X] Rota autenticada `GET: /api/quote`
-  - [ ] Rota autenticada `GET: /api/quote/random`
+  - [X] Rota autenticada `GET: /api/quote/random`
   - [ ] Rota autenticada `GET: /api/quote/daily`
 - [ ] Swagger em todas as rotas
   - [X] Rota pública `GET /api-docs`

@@ -5,6 +5,9 @@ import { verifyJwt } from '../../middlewares/verify-jwt'
 import { fetchQuotes } from './fetch-quotes'
 import { fetchQuotesSwagger } from './fetch-quotes.swagger'
 
+import { findRandomQuote } from './find-random-quote'
+import { findRandomQuoteSwagger } from './find-random-quote.swagger'
+
 import { createQuote } from './create-quote'
 import { createQuoteSwagger } from './create-quote.swagger'
 
@@ -15,6 +18,8 @@ export async function quoteRoutes(app: FastifyInstance) {
   app.addHook('onRequest', verifyJwt)
 
   app.get('/quote', { schema: fetchQuotesSwagger }, fetchQuotes)
+
+  app.get('/quote/random', { schema: findRandomQuoteSwagger }, findRandomQuote)
 
   app.post('/quote', { schema: createQuoteSwagger }, createQuote)
 
