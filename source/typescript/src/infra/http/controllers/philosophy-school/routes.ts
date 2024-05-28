@@ -5,7 +5,7 @@ import { verifyJwt } from '../../middlewares/verify-jwt'
 import { fetchPhilosophySchools } from './fetch-philosophy-schools'
 import { fetchPhilosophySchoolsSwagger } from './fetch-philosophy-schools.swagger'
 
-import { findPhilosophySchool } from './find-philosophy-school'
+import { findPhilosophySchool } from './find-philosophy-school-by-id'
 import { findPhilosophySchoolByIdSwagger } from './find-philosophy-school-by-id.swagger'
 
 import { createPhilosophySchool } from './create-philosophy-school'

@@ -1,14 +1,14 @@
-export const findPhilosophySchoolByIdSwagger = {
-  description: 'Route to find a philosophy school',
-  tags: ['PhilosophySchool'],
+export const findPhilosopherByIdSwagger = {
+  description: 'Route to find a philosopher',
+  tags: ['Philosopher'],
   security: [{ Bearer: [] }],
-  summary: 'Route to find a philosophy school',
+  summary: 'Route to find a philosopher',
   params: {
     type: 'object',
     properties: {
       id: {
         type: 'string',
-        description: 'Philosophy school id',
+        description: 'Philosopher id',
       },
     },
   },
@@ -17,20 +17,28 @@ export const findPhilosophySchoolByIdSwagger = {
       description: 'Successful response',
       type: 'object',
       properties: {
-        philosophySchool: {
+        philosopher: {
           type: 'object',
           properties: {
             id: {
               type: 'string',
-              description: 'Philosophy school id',
+              description: 'Philosopher id',
             },
             name: {
               type: 'string',
-              description: 'Philosophy school name',
+              description: 'Philosopher name',
             },
-            century: {
+            nationality: {
               type: 'string',
-              description: 'Philosophy school century',
+              description: 'Philosopher nationality',
+            },
+            born_date: {
+              type: 'string',
+              description: 'Philosopher born date',
+            },
+            death_date: {
+              type: 'string',
+              description: 'Philosopher death date',
             },
           },
         },

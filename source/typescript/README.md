@@ -15,7 +15,7 @@
   - [X] Rota autenticada `GET: /api/school`
   - [X] Rota autenticada `GET: /api/school/:id`
   - [X] Rota autenticada `GET: /api/philosopher`
-  - [ ] Rota autenticada `GET: /api/philosopher/:id`
+  - [X] Rota autenticada `GET: /api/philosopher/:id`
   - [ ] Rota autenticada `GET: /api/quote`
   - [ ] Rota autenticada `GET: /api/quote/random`
   - [ ] Rota autenticada `GET: /api/quote/daily`

@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { FastifyRequest, FastifyReply } from 'fastify'
 
-import { makeFindPhilosophySchoolUseCase } from 'src/domain/factories/make-find-school-by-id'
+import { makeFindPhilosophySchoolByIdUseCase } from 'src/domain/factories/make-find-philosophy-school-by-id'
 import { ResourceNotFoundError } from 'src/domain/use-cases/errors/resource-not-found-error'
 
 export async function findPhilosophySchool(
@@ -14,7 +14,7 @@ export async function findPhilosophySchool(
 
   const { id } = findPhilosophySchoolByIdParamsSchema.parse(request.params)
 
-  const findPhilosophySchoolUseCase = makeFindPhilosophySchoolUseCase()
+  const findPhilosophySchoolUseCase = makeFindPhilosophySchoolByIdUseCase()
 
   const result = await findPhilosophySchoolUseCase.execute({ id })
 

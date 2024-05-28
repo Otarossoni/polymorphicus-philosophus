@@ -2,7 +2,7 @@ import { KnexPhilosophySchoolRepository } from '../../infra/database/knex/knex-p
 
 import { FindPhilosophySchoolByIdUseCase } from '../use-cases/find-philosophy-school-by-id'
 
-export function makeFindPhilosophySchoolUseCase() {
+export function makeFindPhilosophySchoolByIdUseCase() {
   const philosophySchoolRepository = new KnexPhilosophySchoolRepository()
 
   const findPhilosophySchoolByIdUseCase = new FindPhilosophySchoolByIdUseCase(

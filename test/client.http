@@ -107,3 +107,10 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
   
 ###
+
+# @name find_philosopher_by_id
+GET {{baseUrl}}/philosopher/8b23067c-cbf6-4a5a-9b40-fa93d03e4095
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+  
+###
