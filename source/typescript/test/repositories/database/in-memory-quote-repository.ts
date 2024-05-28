@@ -6,6 +6,10 @@ import { QuoteRepository } from '../../../src/domain/repositories/database/quote
 export class InMemoryQuoteRepository implements QuoteRepository {
   public items: Quote[] = []
 
+  async findByAll(): Promise<Quote[]> {
+    return this.items
+  }
+
   async create(data: Quote): Promise<Quote> {
     const newQuote: Quote = {
       id: randomUUID(),

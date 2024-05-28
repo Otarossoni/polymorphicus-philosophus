@@ -16,7 +16,7 @@
   - [X] Rota autenticada `GET: /api/school/:id`
   - [X] Rota autenticada `GET: /api/philosopher`
   - [X] Rota autenticada `GET: /api/philosopher/:id`
-  - [ ] Rota autenticada `GET: /api/quote`
+  - [X] Rota autenticada `GET: /api/quote`
   - [ ] Rota autenticada `GET: /api/quote/random`
   - [ ] Rota autenticada `GET: /api/quote/daily`
 - [ ] Swagger em todas as rotas

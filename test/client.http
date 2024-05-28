@@ -114,3 +114,10 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
   
 ###
+
+# @name fetch_quotes
+GET {{baseUrl}}/quote
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+  
+###
