@@ -5,6 +5,8 @@ import { FindRandomQuoteUseCase } from './find-random-quote'
 import { InMemoryPhilosopherRepository } from 'test/repositories/database/in-memory-philosopher-repository'
 import { InMemoryQuoteRepository } from 'test/repositories/database/in-memory-quote-repository'
 
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
+
 let inMemoryPhilosopherRepository: InMemoryPhilosopherRepository
 let inMemoryQuoteRepository: InMemoryQuoteRepository
 
@@ -40,9 +42,10 @@ describe('Find Random Quote', () => {
     expect(result.isRight()).toBeTruthy()
   })
 
-  it('should not be able to find a random quote with quotes', async () => {
+  it('should not be able to find a random quote without quotes', async () => {
     const result = await sut.execute()
 
     expect(result.isLeft()).toBeTruthy()
+    expect(result.value).instanceOf(ResourceNotFoundError)
   })
 })

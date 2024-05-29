@@ -128,3 +128,10 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
   
 ###
+
+# @name find_daily_quote
+GET {{baseUrl}}/quote/daily
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+  
+###
