@@ -14,4 +14,17 @@ export class KnexDailyQuoteRepository implements DailyQuoteRepository {
 
     return dailyQuote
   }
+
+  async create(data: DailyQuote): Promise<DailyQuote> {
+    const newDailyQuote: DailyQuote = data
+
+    await knex(DAILY_QUOTE_TABLE)
+      .insert(newDailyQuote)
+      .then()
+      .catch((err) => {
+        console.error(err)
+      })
+
+    return newDailyQuote
+  }
 }

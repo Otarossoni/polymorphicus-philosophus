@@ -35,9 +35,6 @@ describe('Find Daily Quote', () => {
 
     const result = await sut.execute()
 
-    console.log(inMemoryDailyQuoteRepository.items)
-    console.log(result.value)
-
     expect(result.isRight()).toBeTruthy()
     if (result.isRight()) {
       expect(result.value.dailyQuote.quote).toEqual('5')

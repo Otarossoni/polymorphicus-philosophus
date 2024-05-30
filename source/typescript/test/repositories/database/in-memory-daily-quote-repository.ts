@@ -11,4 +11,12 @@ export class InMemoryDailyQuoteRepository implements DailyQuoteRepository {
 
     return mostRecentQuote
   }
+
+  async create(data: DailyQuote): Promise<DailyQuote> {
+    const newPhilosopher: DailyQuote = data
+
+    this.items.push(newPhilosopher)
+
+    return newPhilosopher
+  }
 }

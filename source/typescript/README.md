@@ -11,15 +11,15 @@
   - [X] Rota autenticada `POST: /api/philosopher/link`
   - [X] Rota autenticada `POST: /api/quote`
   - [X] Rota autenticada `POST: /api/quote/list`
-- [ ] Sete endpoints voltados a busca de entidades
+- [X] Sete endpoints voltados a busca de entidades
   - [X] Rota autenticada `GET: /api/school`
   - [X] Rota autenticada `GET: /api/school/:id`
   - [X] Rota autenticada `GET: /api/philosopher`
   - [X] Rota autenticada `GET: /api/philosopher/:id`
   - [X] Rota autenticada `GET: /api/quote`
   - [X] Rota autenticada `GET: /api/quote/random`
-  - [ ] Rota autenticada `GET: /api/quote/daily`
-- [ ] Swagger em todas as rotas
+  - [X] Rota autenticada `GET: /api/quote/daily`
+- [X] Swagger em todas as rotas
   - [X] Rota pública `GET /api-docs`
-- [ ] Testes automatizados onde for possível testar
-- [ ] Uma rotina de execução diária
+- [X] Testes automatizados onde for possível testar
+- [X] Uma rotina de execução diária
