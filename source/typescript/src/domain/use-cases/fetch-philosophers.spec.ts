@@ -16,9 +16,9 @@ describe('Fetch Philosophers', () => {
   })
 
   it('should be able to fetch all philosophers', async () => {
-    const numberOfSchools = 5
+    const numberOfPhilosophers = 5
 
-    for (let i = 0; i < numberOfSchools; i++) {
+    for (let i = 0; i < numberOfPhilosophers; i++) {
       inMemoryPhilosopherRepository.create({
         name: `Philosopher ${i + 1}`,
         nationality: 'Brazilian',
@@ -31,6 +31,8 @@ describe('Fetch Philosophers', () => {
 
     expect(result.isRight()).toBe(true)
     expect(result.value.philosophers).toEqual(expect.any(Array))
-    expect(inMemoryPhilosopherRepository.items.length).toEqual(numberOfSchools)
+    expect(inMemoryPhilosopherRepository.items).toHaveLength(
+      numberOfPhilosophers,
+    )
   })
 })

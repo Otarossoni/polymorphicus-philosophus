@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { FastifyRequest, FastifyReply } from 'fastify'
 
-import { makePhilosopherUseCase } from '../../../../domain/factories/make-create-philosopher'
+import { makeCreatePhilosopherUseCase } from '../../../../domain/factories/make-create-philosopher'
 
 import { ResourceAlreadyExistsError } from '../../../../domain/use-cases/errors/resource-already-exists-error'
 
@@ -16,10 +16,9 @@ export async function createPhilosopher(
     nationality: z.string(),
     born_date: z.string(),
     death_date: z.string(),
-    school_id: z.string(),
   })
 
-  const { name, nationality, born_date, death_date, school_id } =
+  const { name, nationality, born_date, death_date } =
     createPhilosopherBodySchema.parse(request.body)
 
   const isBornDateValid = validateBcAcDate(born_date)
@@ -34,14 +33,13 @@ export async function createPhilosopher(
     return reply.status(400).send({ message: 'Death date is invalid.' })
   }
 
-  const createPhilosopherUseCase = makePhilosopherUseCase()
+  const createPhilosopherUseCase = makeCreatePhilosopherUseCase()
 
   const result = await createPhilosopherUseCase.execute({
     name,
     nationality,
     born_date,
     death_date,
-    school_id,
   })
 
   if (result.isLeft()) {

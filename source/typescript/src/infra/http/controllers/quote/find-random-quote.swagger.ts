@@ -27,6 +27,13 @@ export const findRandomQuoteSwagger = {
         },
       },
     },
+    404: {
+      description: 'Not found response',
+      type: 'object',
+      properties: {
+        message: { type: 'string' },
+      },
+    },
     500: {
       description: 'Internal server error response',
       type: 'string',

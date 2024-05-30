@@ -1,3 +1,4 @@
+/** @description Generates a random date in the year 2002 */
 export function generateRandomDate(): Date {
   return new Date(
     2002, // Year => 2002

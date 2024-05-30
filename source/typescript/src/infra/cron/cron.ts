@@ -19,7 +19,7 @@ export class CronTask {
       const isTimeValid = isValidCronExpression(time)
 
       if (!isTimeValid) {
-        throw new Error('❌ Cron Expression not valid!')
+        throw new Error('Cron Expression not valid!')
       }
 
       this.time = time

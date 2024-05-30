@@ -13,10 +13,10 @@ export class InMemoryDailyQuoteRepository implements DailyQuoteRepository {
   }
 
   async create(data: DailyQuote): Promise<DailyQuote> {
-    const newPhilosopher: DailyQuote = data
+    const newDailyQuote: DailyQuote = data
 
-    this.items.push(newPhilosopher)
+    this.items.push(newDailyQuote)
 
-    return newPhilosopher
+    return newDailyQuote
   }
 }

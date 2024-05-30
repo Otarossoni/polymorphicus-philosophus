@@ -7,7 +7,7 @@ export function makeRegisterUseCase() {
   const userRepository = new KnexUserRepository()
   const hashRepository = new BcryptHashRepository()
 
-  const register = new RegisterUseCase(userRepository, hashRepository)
+  const registerUseCase = new RegisterUseCase(userRepository, hashRepository)
 
-  return register
+  return registerUseCase
 }

@@ -1,8 +1,8 @@
 export const findPhilosopherByIdSwagger = {
-  description: 'Route to find a philosopher',
+  description: 'Route to find a philosopher using his ID',
   tags: ['Philosopher'],
   security: [{ Bearer: [] }],
-  summary: 'Route to find a philosopher',
+  summary: 'Route to find a philosopher using his ID',
   params: {
     type: 'object',
     properties: {

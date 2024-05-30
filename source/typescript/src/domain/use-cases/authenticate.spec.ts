@@ -9,7 +9,7 @@ import { FakeEncrypter } from 'test/repositories/cryptography/fake-encrypter'
 import { WrongCredentialsError } from './errors/wrong-credentials-error'
 
 let inMemoryUserRepository: InMemoryUserRepository
-let fakeHashRepository = new FakeHashRepository()
+let fakeHashRepository: FakeHashRepository
 let fakeEncrypter: FakeEncrypter
 
 let sut: AuthenticateUseCase
@@ -40,6 +40,7 @@ describe('Authenticate', () => {
     })
 
     expect(result.isRight()).toEqual(true)
+    expect(inMemoryUserRepository.items).toHaveLength(1)
     expect(result.value).toEqual({
       access_token: expect.any(String),
     })
@@ -52,6 +53,7 @@ describe('Authenticate', () => {
     })
 
     expect(result.isLeft()).toEqual(true)
+    expect(inMemoryUserRepository.items).toHaveLength(0)
     expect(result.value).toBeInstanceOf(WrongCredentialsError)
   })
 
@@ -68,6 +70,7 @@ describe('Authenticate', () => {
     })
 
     expect(result.isLeft()).toEqual(true)
+    expect(inMemoryUserRepository.items).toHaveLength(1)
     expect(result.value).toBeInstanceOf(WrongCredentialsError)
   })
 })

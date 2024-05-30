@@ -1,8 +1,8 @@
 import { randomUUID } from 'node:crypto'
 
 import { knex } from '../database'
-import { QuoteRepository } from '../../../domain/repositories/database/quote-repository'
 
+import { QuoteRepository } from '../../../domain/repositories/database/quote-repository'
 import { Quote } from '../../../domain/models/database/quote'
 
 const QUOTE_TABLE = 'public.quote'

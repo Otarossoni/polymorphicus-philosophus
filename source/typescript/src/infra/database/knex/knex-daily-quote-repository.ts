@@ -1,6 +1,6 @@
 import { knex } from '../database'
-import { DailyQuoteRepository } from 'src/domain/repositories/database/daily-quote-repository'
 
+import { DailyQuoteRepository } from 'src/domain/repositories/database/daily-quote-repository'
 import { DailyQuote } from 'src/domain/models/database/daily-quote'
 
 const DAILY_QUOTE_TABLE = 'public.daily_quote'
@@ -16,7 +16,7 @@ export class KnexDailyQuoteRepository implements DailyQuoteRepository {
   }
 
   async create(data: DailyQuote): Promise<DailyQuote> {
-    const newDailyQuote: DailyQuote = data
+    const newDailyQuote: DailyQuote = { ...data }
 
     await knex(DAILY_QUOTE_TABLE)
       .insert(newDailyQuote)

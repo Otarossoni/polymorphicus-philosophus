@@ -1,8 +1,8 @@
 import { randomUUID } from 'node:crypto'
 
 import { knex } from '../database'
-import { PhilosopherRepository } from '../../../domain/repositories/database/philosopher-repository'
 
+import { PhilosopherRepository } from '../../../domain/repositories/database/philosopher-repository'
 import { Philosopher } from '../../../domain/models/database/philosopher'
 
 const PHILOSOPHER_TABLE = 'public.philosopher'

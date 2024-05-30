@@ -1,8 +1,8 @@
 export const createQuoteListSwagger = {
-  description: 'Route to create a new quote',
+  description: 'Route to create new quotes using a list',
   tags: ['Quote'],
   security: [{ Bearer: [] }],
-  summary: 'Route to create a new quote',
+  summary: 'Route to create new quotes using a list',
   body: {
     type: 'object',
     properties: {
@@ -68,8 +68,8 @@ export const createQuoteListSwagger = {
         },
       },
     },
-    409: {
-      description: 'Conflict response',
+    404: {
+      description: 'Not found response',
       type: 'object',
       properties: {
         message: { type: 'string' },

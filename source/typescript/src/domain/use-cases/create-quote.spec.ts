@@ -2,8 +2,8 @@ import { describe, beforeEach, it, expect } from 'vitest'
 
 import { CreateQuoteUseCase } from './create-quote'
 
-import { InMemoryPhilosopherRepository } from 'test/repositories/database/in-memory-philosopher-repository'
 import { InMemoryQuoteRepository } from 'test/repositories/database/in-memory-quote-repository'
+import { InMemoryPhilosopherRepository } from 'test/repositories/database/in-memory-philosopher-repository'
 
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
@@ -12,7 +12,7 @@ let inMemoryPhilosopherRepository: InMemoryPhilosopherRepository
 
 let sut: CreateQuoteUseCase
 
-describe('Create quote', () => {
+describe('Create Quote', () => {
   beforeEach(() => {
     inMemoryQuoteRepository = new InMemoryQuoteRepository()
     inMemoryPhilosopherRepository = new InMemoryPhilosopherRepository()

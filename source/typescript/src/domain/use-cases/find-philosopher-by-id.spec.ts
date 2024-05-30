@@ -25,13 +25,13 @@ describe('Find Philosopher By Id', () => {
     const result = await sut.execute({ id: philosopher.id })
 
     expect(result.isRight()).toBe(true)
-    expect(inMemoryPhilosopherRepository.items.length).toEqual(1)
+    expect(inMemoryPhilosopherRepository.items).toHaveLength(1)
   })
 
   it('should not be able to find philosopher by id with non existing philosopher', async () => {
     const result = await sut.execute({ id: '123' })
 
     expect(result.isLeft()).toBe(true)
-    expect(inMemoryPhilosopherRepository.items.length).toEqual(0)
+    expect(inMemoryPhilosopherRepository.items).toHaveLength(0)
   })
 })

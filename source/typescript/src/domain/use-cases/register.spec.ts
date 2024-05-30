@@ -29,7 +29,7 @@ describe('Register', () => {
 
     expect(result.isRight()).toBe(true)
     expect(result.value).toEqual(null)
-    expect(inMemoryUserRepository.items.length).toEqual(1)
+    expect(inMemoryUserRepository.items).toHaveLength(1)
   })
 
   it('should hash user password upon registration', async () => {
@@ -59,7 +59,7 @@ describe('Register', () => {
     })
 
     expect(result.isLeft()).toBe(true)
-    expect(inMemoryUserRepository.items.length).toEqual(1)
+    expect(inMemoryUserRepository.items).toHaveLength(1)
     expect(result.value).instanceOf(ResourceAlreadyExistsError)
   })
 })

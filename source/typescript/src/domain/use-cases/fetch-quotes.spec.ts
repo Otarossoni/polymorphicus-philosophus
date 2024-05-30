@@ -26,9 +26,9 @@ describe('Fetch Quotes', () => {
       death_date: '9999-01-01T00:00:00Z B.C.',
     })
 
-    const numberOfSchools = 5
+    const numberOfQuotes = 5
 
-    for (let i = 0; i < numberOfSchools; i++) {
+    for (let i = 0; i < numberOfQuotes; i++) {
       inMemoryQuoteRepository.create({
         philosopher_id: philosopher.id,
         phrase: `I think, therefore I Am ${i}`,
@@ -39,6 +39,6 @@ describe('Fetch Quotes', () => {
 
     expect(result.isRight()).toBe(true)
     expect(result.value.quotes).toEqual(expect.any(Array))
-    expect(inMemoryQuoteRepository.items.length).toEqual(numberOfSchools)
+    expect(inMemoryQuoteRepository.items).toHaveLength(numberOfQuotes)
   })
 })

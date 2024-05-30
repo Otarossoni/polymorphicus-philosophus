@@ -2,8 +2,8 @@ import { describe, beforeEach, it, expect } from 'vitest'
 
 import { CreateQuoteListUseCase } from './create-quote-list'
 
-import { InMemoryPhilosopherRepository } from 'test/repositories/database/in-memory-philosopher-repository'
 import { InMemoryQuoteRepository } from 'test/repositories/database/in-memory-quote-repository'
+import { InMemoryPhilosopherRepository } from 'test/repositories/database/in-memory-philosopher-repository'
 
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
@@ -12,7 +12,7 @@ let inMemoryPhilosopherRepository: InMemoryPhilosopherRepository
 
 let sut: CreateQuoteListUseCase
 
-describe('Create quote list', () => {
+describe('Create Quote List', () => {
   beforeEach(() => {
     inMemoryQuoteRepository = new InMemoryQuoteRepository()
     inMemoryPhilosopherRepository = new InMemoryPhilosopherRepository()
@@ -23,7 +23,7 @@ describe('Create quote list', () => {
     )
   })
 
-  it('should be able to create a new quote using a list', async () => {
+  it('should be able to create new quotes using a list', async () => {
     const philosopher = await inMemoryPhilosopherRepository.create({
       name: 'Philosopher',
       nationality: 'Philosopher Nationality',
@@ -43,7 +43,7 @@ describe('Create quote list', () => {
     expect(inMemoryQuoteRepository.items).toHaveLength(2)
   })
 
-  it('should not be able to create a new quote using a list with non existing philosopher', async () => {
+  it('should not be able to create new quotes using a list with non existing philosopher', async () => {
     const result = await sut.execute({
       philosopher_id: '123',
       phrases: [

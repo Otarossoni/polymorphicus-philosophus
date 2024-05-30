@@ -7,10 +7,10 @@ export function makeRenewDailyQuoteUseCase() {
   const quoteRepository = new KnexQuoteRepository()
   const quoteDailyRepository = new KnexDailyQuoteRepository()
 
-  const findRandomQuoteUseCase = new RenewDailyQuoteUseCase(
+  const renewDailyQuoteUseCase = new RenewDailyQuoteUseCase(
     quoteRepository,
     quoteDailyRepository,
   )
 
-  return findRandomQuoteUseCase
+  return renewDailyQuoteUseCase
 }

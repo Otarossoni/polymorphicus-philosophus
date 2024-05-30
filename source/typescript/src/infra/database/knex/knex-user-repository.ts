@@ -1,8 +1,8 @@
 import { randomUUID } from 'node:crypto'
 
 import { knex } from '../database'
-import { UserRepository } from '../../../domain/repositories/database/user-repository'
 
+import { UserRepository } from '../../../domain/repositories/database/user-repository'
 import { User } from '../../../domain/models/database/user'
 
 const USER_TABLE = 'public.user'

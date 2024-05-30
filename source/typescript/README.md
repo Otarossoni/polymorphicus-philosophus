@@ -5,15 +5,11 @@
 - [X] Dois endpoints voltados para autenticação
   - [X] Rota pública `POST: /api/register`
   - [X] Rota pública `POST: /api/session`
-- [X] Cinco endpoints voltados a criação de entidades
-  - [X] Rota autenticada `POST: /api/school`
+- [X] Três endpoints voltados a criação de entidades
   - [X] Rota autenticada `POST: /api/philosopher`
-  - [X] Rota autenticada `POST: /api/philosopher/link`
   - [X] Rota autenticada `POST: /api/quote`
   - [X] Rota autenticada `POST: /api/quote/list`
-- [X] Sete endpoints voltados a busca de entidades
-  - [X] Rota autenticada `GET: /api/school`
-  - [X] Rota autenticada `GET: /api/school/:id`
+- [X] Cinco endpoints voltados a busca de entidades
   - [X] Rota autenticada `GET: /api/philosopher`
   - [X] Rota autenticada `GET: /api/philosopher/:id`
   - [X] Rota autenticada `GET: /api/quote`

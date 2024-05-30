@@ -10,5 +10,5 @@ export async function fetchQuotes(
 
   const result = await fetchQuotesUseCase.execute()
 
-  return reply.send(result.value)
+  return reply.status(200).send(result.value)
 }

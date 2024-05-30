@@ -7,13 +7,7 @@ CREATE TABLE public.user (
 
 CREATE TABLE public.daily_quote (
   quote varchar(500) NOT NULL,
-  day Date NOT NULL
-);
-
-CREATE TABLE public.philosophy_school (
-  id char(36) PRIMARY KEY,
-  name varchar(255) NOT NULL,
-  century varchar(255) NOT NULL
+  day timestamp NOT NULL
 );
 
 CREATE TABLE public.philosopher (
@@ -22,14 +16,6 @@ CREATE TABLE public.philosopher (
   nationality varchar(255) NOT NULL,
   born_date varchar(25),
   death_date varchar(25)
-);
-
-CREATE TABLE public.philosopher_school (
-  id char(36) PRIMARY KEY,
-  philosopher_id char(36) NOT NULL,
-  school_id char(36) NOT NULL,
-  FOREIGN KEY (philosopher_id) REFERENCES philosopher(id),
-  FOREIGN KEY (school_id) REFERENCES philosophy_school(id)
 );
 
 CREATE TABLE public.quote (

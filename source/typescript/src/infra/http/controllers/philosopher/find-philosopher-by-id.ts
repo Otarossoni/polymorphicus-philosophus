@@ -15,9 +15,9 @@ export async function findPhilosopherById(
 
   const { id } = findPhilosopherByIdParamsSchema.parse(request.params)
 
-  const findPhilosopherUseCase = makeFindPhilosopherByIdUseCase()
+  const findPhilosopherByIdUseCase = makeFindPhilosopherByIdUseCase()
 
-  const result = await findPhilosopherUseCase.execute({ id })
+  const result = await findPhilosopherByIdUseCase.execute({ id })
 
   if (result.isLeft()) {
     const error = result.value
@@ -27,5 +27,5 @@ export async function findPhilosopherById(
     }
   }
 
-  return reply.send(result.value)
+  return reply.status(200).send(result.value)
 }

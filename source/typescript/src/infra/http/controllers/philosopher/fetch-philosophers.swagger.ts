@@ -33,10 +33,6 @@ export const fetchPhilosophersSwagger = {
                 type: 'string',
                 description: 'Philosopher death date',
               },
-              school_id: {
-                type: 'string',
-                description: 'Philosophy school linked',
-              },
             },
           },
         },

@@ -40,8 +40,8 @@ export const createQuoteSwagger = {
         },
       },
     },
-    409: {
-      description: 'Conflict response',
+    404: {
+      description: 'Not found response',
       type: 'object',
       properties: {
         message: { type: 'string' },

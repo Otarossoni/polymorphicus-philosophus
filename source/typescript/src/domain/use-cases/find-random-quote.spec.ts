@@ -28,9 +28,9 @@ describe('Find Random Quote', () => {
       death_date: '9999-01-01T00:00:00Z B.C.',
     })
 
-    const numberOfSchools = 5
+    const numberOfQuotes = 5
 
-    for (let i = 0; i < numberOfSchools; i++) {
+    for (let i = 0; i < numberOfQuotes; i++) {
       inMemoryQuoteRepository.create({
         philosopher_id: philosopher.id,
         phrase: `${i}`,

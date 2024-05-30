@@ -1,5 +1,6 @@
 @baseUrl = http://localhost:3140/api
 @authToken = {{authenticate.response.body.access_token}}
+@philosopherId = {{create_philosopher.response.body.philosopher.id}}
 
 # @name create_account
 POST {{baseUrl}}/register
@@ -24,18 +25,6 @@ Content-Type: application/json
 
 ###
 
-# @name create_philosophy_school
-POST {{baseUrl}}/school
-Content-Type: application/json
-Authorization: Bearer {{authToken}}
-
-{
-  "name": "Cartesianismo",
-  "century": "XVII e XVIII d.C."
-}
-
-###
-
 # @name create_philosopher
 POST {{baseUrl}}/philosopher
 Content-Type: application/json
@@ -45,20 +34,7 @@ Authorization: Bearer {{authToken}}
   "name": "René Descartes",
   "nationality": "Francês",
   "born_date": "1596-03-31T00:00:00Z B.C.",
-  "death_date": "1650-02-11T00:00:00Z B.C.",
-  "school_id": "2016d224-c038-45c0-b3ca-96803db5ada7"
-}
-  
-###
-
-# @name link_philosopher_to_philosophy_school
-POST {{baseUrl}}/philosopher/link
-Content-Type: application/json
-Authorization: Bearer {{authToken}}
-
-{
-  "philosopher_id": "8b23067c-cbf6-4a5a-9b40-fa93d03e4095",
-  "school_id": "13a8f966-bcac-4b31-8e8e-0142cc45d173"
+  "death_date": "1650-02-11T00:00:00Z B.C."
 }
   
 ###
@@ -69,7 +45,7 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "philosopher_id": "8b23067c-cbf6-4a5a-9b40-fa93d03e4095",
+  "philosopher_id": "{{philosopherId}}",
   "phrase": "I think, therefore I Am"
 }
   
@@ -81,23 +57,9 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "philosopher_id": "8b23067c-cbf6-4a5a-9b40-fa93d03e4095",
+  "philosopher_id": "{{philosopherId}}",
   "phrases": ["I think, therefore I Am", "The greatest minds are capable of the greatest vices as well as of the greatest virtues."]
 }
-  
-###
-
-# @name fetch_philosophy_schools
-GET {{baseUrl}}/school
-Content-Type: application/json
-Authorization: Bearer {{authToken}}
-  
-###
-
-# @name find_philosophy_school_by_id
-GET {{baseUrl}}/school/2016d224-c038-45c0-b3ca-96803db5ada7
-Content-Type: application/json
-Authorization: Bearer {{authToken}}
   
 ###
 
@@ -109,7 +71,7 @@ Authorization: Bearer {{authToken}}
 ###
 
 # @name find_philosopher_by_id
-GET {{baseUrl}}/philosopher/8b23067c-cbf6-4a5a-9b40-fa93d03e4095
+GET {{baseUrl}}/philosopher/{{philosopherId}}
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
   

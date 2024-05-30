@@ -1,7 +1,7 @@
 export const sessionSwagger = {
-  description: 'Route to authorize a user',
+  description: 'Route to authorize an existing user',
   tags: ['Authentication'],
-  summary: 'Route to authorize a user',
+  summary: 'Route to authorize an existing user',
   body: {
     type: 'object',
     properties: {
@@ -20,7 +20,7 @@ export const sessionSwagger = {
       description: 'Successful response',
       type: 'object',
       properties: {
-        access_token: { type: 'string' },
+        access_token: { type: 'string', description: 'User access token' },
       },
     },
     401: {

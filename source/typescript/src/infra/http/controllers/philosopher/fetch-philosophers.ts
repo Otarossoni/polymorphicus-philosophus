@@ -10,5 +10,5 @@ export async function fetchPhilosophers(
 
   const result = await fetchPhilosophersUseCase.execute()
 
-  return reply.send(result.value)
+  return reply.status(200).send(result.value)
 }

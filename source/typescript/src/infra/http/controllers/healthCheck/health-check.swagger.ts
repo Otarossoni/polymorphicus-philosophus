@@ -7,11 +7,11 @@ export const healthCheckSwagger = {
       description: 'Successful response',
       type: 'object',
       properties: {
-        status: { type: 'string' },
-        version: { type: 'string' },
-        uptime: { type: 'number' },
-        timestamp: { type: 'string' },
-        environment: { type: 'string' },
+        status: { type: 'string', description: 'API status' },
+        version: { type: 'string', description: 'API version' },
+        uptime: { type: 'number', description: 'Time the API is online' },
+        timestamp: { type: 'string', description: 'Current time' },
+        environment: { type: 'string', description: 'API environment' },
       },
     },
     500: {

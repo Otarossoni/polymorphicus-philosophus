@@ -29,7 +29,7 @@ export async function createQuoteList(
     const error = result.value
 
     if (error instanceof ResourceNotFoundError) {
-      return reply.status(409).send({ message: error.message })
+      return reply.status(404).send({ message: error.message })
     }
   }
 

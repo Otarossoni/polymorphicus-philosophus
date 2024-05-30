@@ -9,11 +9,11 @@ export function makeAuthenticateUseCase() {
   const hashRepository = new BcryptHashRepository()
   const encrypterRepository = new JwtEncrypterRepository()
 
-  const register = new AuthenticateUseCase(
+  const authenticateUseCase = new AuthenticateUseCase(
     userRepository,
     hashRepository,
     encrypterRepository,
   )
 
-  return register
+  return authenticateUseCase
 }

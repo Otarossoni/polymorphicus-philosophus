@@ -22,14 +22,10 @@ export const createPhilosopherSwagger = {
         type: 'string',
         description: 'Philosopher death date',
       },
-      school_id: {
-        type: 'string',
-        description: 'Philosophy school linked',
-      },
     },
   },
   response: {
-    200: {
+    201: {
       description: 'Successful response',
       type: 'object',
       properties: {
@@ -55,10 +51,6 @@ export const createPhilosopherSwagger = {
             death_date: {
               type: 'string',
               description: 'Philosopher death date',
-            },
-            school_id: {
-              type: 'string',
-              description: 'Philosophy school linked',
             },
           },
         },

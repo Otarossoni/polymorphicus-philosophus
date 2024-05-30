@@ -1,16 +1,15 @@
+import { ZodError } from 'zod'
+
+import { env } from './env/variables'
+
 import { FastifyInstance, fastify } from 'fastify'
 import fastifyJwt from '@fastify/jwt'
 import fastifyCors from '@fastify/cors'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUi from '@fastify/swagger-ui'
 
-import { ZodError } from 'zod'
-
-import { env } from './env/variables'
-
 import { healthCheckRoutes } from './http/controllers/healthCheck/routes'
 import { authRoutes } from './http/controllers/authentication/routes'
-import { philosophySchoolRoutes } from './http/controllers/philosophy-school/routes'
 import { philosopherRoutes } from './http/controllers/philosopher/routes'
 import { quoteRoutes } from './http/controllers/quote/routes'
 
@@ -55,7 +54,6 @@ app.register(fastifySwaggerUi, {
 
 app.register(healthCheckRoutes, { prefix: 'api' })
 app.register(authRoutes, { prefix: 'api' })
-app.register(philosophySchoolRoutes, { prefix: 'api' })
 app.register(philosopherRoutes, { prefix: 'api' })
 app.register(quoteRoutes, { prefix: 'api' })
 
@@ -70,7 +68,7 @@ app.setErrorHandler((error, _request, reply) => {
   if (env.NODE_ENV !== 'production') {
     console.error(error)
   } else {
-    // TODO: Ferramenta externa de log
+    // External logging tool
   }
 
   return reply.status(500).send({ message: 'Internal server error' })

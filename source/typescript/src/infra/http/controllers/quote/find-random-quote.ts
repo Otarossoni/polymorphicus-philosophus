@@ -20,5 +20,5 @@ export async function findRandomQuote(
     }
   }
 
-  return reply.send(result.value)
+  return reply.status(200).send(result.value)
 }

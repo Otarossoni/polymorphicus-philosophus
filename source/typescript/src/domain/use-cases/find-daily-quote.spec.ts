@@ -19,9 +19,9 @@ describe('Find Daily Quote', () => {
   })
 
   it('should be able to find a daily quote', async () => {
-    const numberOfSchools = 5
+    const numberOfDailyQuotes = 5
 
-    for (let i = 0; i < numberOfSchools; i++) {
+    for (let i = 0; i < numberOfDailyQuotes; i++) {
       inMemoryDailyQuoteRepository.items.push({
         quote: `${i}`,
         day: generateRandomDate(),
@@ -39,12 +39,16 @@ describe('Find Daily Quote', () => {
     if (result.isRight()) {
       expect(result.value.dailyQuote.quote).toEqual('5')
     }
+    expect(inMemoryDailyQuoteRepository.items).toHaveLength(
+      numberOfDailyQuotes + 1,
+    )
   })
 
   it('should not be able to find a daily quote without quotes', async () => {
     const result = await sut.execute()
 
     expect(result.isLeft()).toBeTruthy()
+    expect(inMemoryDailyQuoteRepository.items).toHaveLength(0)
     expect(result.value).instanceOf(ResourceNotFoundError)
   })
 })

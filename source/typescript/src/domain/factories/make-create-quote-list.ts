@@ -7,10 +7,10 @@ export function makeCreateQuoteListUseCase() {
   const quoteRepository = new KnexQuoteRepository()
   const philosopherRepository = new KnexPhilosopherRepository()
 
-  const createQuoteList = new CreateQuoteListUseCase(
+  const createQuoteListUseCase = new CreateQuoteListUseCase(
     quoteRepository,
     philosopherRepository,
   )
 
-  return createQuoteList
+  return createQuoteListUseCase
 }
